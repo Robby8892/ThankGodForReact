@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './App.css'
 import Navbar from './Navbar.js'
 import shoppingCart from './photos/shopping-cart.png'
@@ -29,7 +29,13 @@ const zoomOutProperties = {
 }
 
 
-function App() {
+export default class App extends Component {
+  constructor(){
+    super()
+  }
+  render(){
+
+
   return (
 
       <React.Fragment>
@@ -74,7 +80,6 @@ function App() {
         </div>
 
       </React.Fragment>
-  );
+    );
+  }
 }
-
-export default App;
