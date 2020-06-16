@@ -1,0 +1,164 @@
+.title {
+  position: relative;
+  width: 846.8px;
+  height: 57.45px;
+  left: 350.8px;
+  top: -4.25px;
+
+  font-family: Advent Pro;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 62px;
+  text-align: center;
+
+  color: #04A6DA;
+
+
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.nav-bar {
+  text-align: center;
+  border: 3px solid #E8C27B;
+  background: #E8C27B;
+}
+
+.nav-bar-item {
+  display: inline-block;
+  margin: 0 3em 0 3em;
+}
+
+ul {
+  list-style: none;
+}
+
+.shopping-cart {
+  width: 27px;
+  height: 22px;
+  top: 74px;
+}
+
+
+.reviews {
+  position: relative;
+  margin: -10em 4em;
+}
+
+.review-item {
+  width: 278.14px;
+  height: 50.71px;
+  margin-bottom: 4em; 
+
+  text-align: center;
+
+  background: #E8C27B;
+  border: 1px solid #04A6DA;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+  transform: matrix(0.98, -0.21, 0.21, 0.98, 0, 0);
+}
+
+.contact {
+  position: absolute;
+  width: 50%;
+  height: 32px;
+  left: 38.5em;
+  top: 12.5em;
+
+  font-family: Advent Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.phone {
+  position: absolute;
+  width: 50%;
+  left: 38.5em;
+  top: 15.5em;
+
+  font-family: Advent Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.email {
+  position: absolute;
+  width: 50%;
+  left: 38.5em;
+  top: 19.5em;
+
+  font-family: Advent Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.instagram, .facebook {
+  position: relative;
+  left: 62.5em;
+  top: .1em;
+  margin: 0 2em 0 2em;
+}
+
+.cashapp {
+  position: relative;
+  left: 48.5em;
+  top: 10.9em;
+  margin: 0 3em 0 3em;
+}
+
+.venmo {
+  position: absolute;
+  left: 70.5em;
+  top: 40.3em;
+}
+
+.payment-options {
+  position: absolute;
+  width: 50%;
+  left: 38.2em;
+  top: 28em;
+
+  font-family: Advent Pro;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+
+}
+
+.slide-container, .slider-item {
+  position: relative; 
+  width: 20%;
+  left: 35em;
+  top: 15em;
+}
+
+
+
+
+
+figure {
+  display: flex;
+  padding: 5px;
+  max-width: 220px;
+  margin: auto;
+}
+
