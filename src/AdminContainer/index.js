@@ -21,12 +21,13 @@ export default class AdminContainer extends Component {
 		
 		loginAdmin = async (loginInfo) => {
 			try{
+				console.log('here is loginInfo', loginInfo);
 				const loginResponse = await axios.post(process.env.REACT_APP_API_URI + '/admin/login', {
 					data: loginInfo
 				})
 				.then(res => {
 					if(res.data.status === 200){
-						console.log(loginResponse);
+						console.log(res.data, 'here is loginResponse');
 					} else {
 						this.setState({
 							errorMsg: 'Invalid credentials.'
