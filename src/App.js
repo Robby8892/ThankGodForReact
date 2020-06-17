@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import './App.css'
 import NavbarContainer from './NavbarContainer'
-
 import AboutContainer from './AboutContainer'
 import HomeContainer from './HomeContainer'
-
 import AdminContainer from './AdminContainer'
-
+import TreatContainer from './TreatContainer'
 // I need to use react router to create a unique admin page
 // that will be used to add treats to the website 
 
@@ -16,7 +14,7 @@ export default class App extends Component {
     this.state = {
       home: false,
       about: false,
-      treats: false,
+      treats: true,
       photosReviews: false,
       cart: false,
       navBar: true,
@@ -107,6 +105,7 @@ export default class App extends Component {
         {this.state.navBar ? <NavbarContainer navBar={this.navBar}/> : null}
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
+        {this.state.treats ? <TreatContainer/> : null}
       </div>
     );
   }
