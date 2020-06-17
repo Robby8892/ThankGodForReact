@@ -2,16 +2,7 @@ import React, { Component } from 'react'
 import './App.css'
 import Navbar from './Navbar.js'
 import shoppingCart from './photos/shopping-cart.png'
-import facebookLogo from './photos/App Logo Inspiraton 42.png'
-import instagramLogo from './photos/Icon.png'
-import cashappLogo from './photos/Cash App 1.png'
-import venmoLogo from './photos/venmologo.png'
 import logo from './photos/LOGO.png'
-import cinRoll from './photos/Cinnamon Rolls.png'
-import glazCinDo from './photos/Glazed Cinnamon Donuts.png'
-import twoToDo from './photos/Two Tone Donut.png'
-
-
 
 import AboutContainer from './AboutContainer'
 import HomeContainer from './HomeContainer'
@@ -22,15 +13,60 @@ export default class App extends Component {
   constructor(){
     super()
     this.state = {
-      home: true,
-      about: false,
+      home: false,
+      about: true,
       treats: false,
-      photosReviews: false
+      photosReviews: false,
+      cart: false
     }
   }
 
   navBar = e => {
-    console.log(e.target.name);
+    if(e.currentTarget.name == 'home'){
+      this.setState({
+        home: true,
+        about: false,
+        treats: false,
+        photosReviews: false,
+        cart: false
+      })
+    }
+    if(e.currentTarget.name == 'about'){
+      this.setState({
+        home: false,
+        about: true,
+        treats: false,
+        photosReviews: false,
+        cart: false
+      })
+    }
+    if(e.currentTarget.name == 'treats'){
+      this.setState({
+        home: false,
+        about: false,
+        treats: true,
+        photosReviews: false,
+        cart: false
+      })
+    }
+    if(e.currentTarget.name == 'photosReviews'){
+      this.setState({
+        home: false,
+        about: false,
+        treats: false,
+        photosReviews: true,
+        cart: false
+      })
+    }
+    if(e.currentTarget.name == 'cart'){
+      this.setState({
+        home: false,
+        about: false,
+        treats: false,
+        photosReviews: false,
+        cart: true
+      })
+    }
   }
   render(){
 
@@ -40,14 +76,15 @@ export default class App extends Component {
         <h1 className='title'><img src={logo} alt={'image of website name, thank god for raw & vegan treats'}/></h1>
         <nav className='nav-bar'>
           <ul>
-            <li onClick={this.navBar} className='nav-bar-item'><a href='#'>Home</a></li>
-            <li onClick={this.navBar} className='nav-bar-item'><a href='#'>Treats</a></li>
-            <li onClick={this.navBar} className='nav-bar-item'><a href='#'>Photos & Reviews</a></li>
-            <li onClick={this.navBar} className='nav-bar-item'><a href='#'>About</a></li>
-            <li onClick={this.navBar} className='nav-bar-item'><a href='#'><img className='shopping-cart' src={shoppingCart} alt={'shopping cart image'}/></a></li>
+            <li className='nav-bar-item'><a name='home' onClick={this.navBar} href='#'>Home</a></li>
+            <li className='nav-bar-item'><a name='treats' onClick={this.navBar} href='#'>Treats</a></li>
+            <li className='nav-bar-item'><a name='photosReviews' onClick={this.navBar} href='#'>Photos & Reviews</a></li>
+            <li className='nav-bar-item'><a name='about' onClick={this.navBar} href='#'>About</a></li>
+            <li className='nav-bar-item'><a name='cart' onClick={this.navBar} href='#'><img className='shopping-cart' src={shoppingCart} alt={'shopping cart image'}/></a></li>
           </ul>
         </nav>
         {this.state.home ? <HomeContainer/> : null}
+        {this.state.about ? <AboutContainer/> : null}
       </div>
     );
   }

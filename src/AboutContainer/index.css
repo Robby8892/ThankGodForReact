@@ -1,0 +1,100 @@
+.about-me-header {
+	position: absolute;
+	width: 143px;
+	height: 22px;
+	left: 6em;
+	top: 15em;
+
+	font-family: Advent Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	/* identical to box height */
+
+	display: flex;
+	align-items: center;
+	text-align: center;
+
+	color: #000000;
+
+}
+
+.about-me-item {
+	margin: 1em 0 1em 0;
+}
+
+.about-me-container {
+	position: absolute;
+	width: 241px;
+	height: 347px;
+	left: 16.99px;
+	top: 16.5em;
+
+	font-family: Advent Pro;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.testimony-container {
+	position: absolute;
+	width: 280px;
+	height: 2817px;
+	left: 570px;
+	top: 166.34px;
+
+	font-family: Advent Pro;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 24px;
+
+	color: #000000;
+}
+
+.founder-container {
+
+	position: absolute;
+	width: 216px;
+	height: 45px;
+	left: 300.99px;
+	top: 400.34px;
+
+	font-family: Advent Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+
+	color: #000000;
+
+}
+
+.founder-img {
+	position: absolute;
+	width: 166px;
+	height: 250px;
+	left: 322.99px;
+	top: 445.34px;
+
+}
+
+.mission-statement {
+	position: absolute;
+	width: 267px;
+	height: 84px;
+	left: 279.99px;
+	top: 695.34px;
+
+	font-family: Advent Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+
+	color: #000000;
+}
