@@ -12,10 +12,10 @@ export default class AdminContainer extends Component {
 	constructor(props){
 		super()
 			this.state = {
-				admin: Boolean,
-				adminName: String,
-				admingId: String,
-				errorMsg: String
+				admin: false,
+				adminName: '',
+				adminId: '',
+				errorMsg: ''
 			}
 		}
 		
@@ -27,7 +27,12 @@ export default class AdminContainer extends Component {
 				})
 				.then(res => {
 					if(res.data.status === 200){
-						console.log(res.data, 'here is loginResponse');
+						this.setState({
+							admin: true,
+							adminName: res.data.loginName,
+							adminId: res.data.adminId,
+							errorMsg: ''
+						})
 					} else {
 						this.setState({
 							errorMsg: 'Invalid credentials.'
@@ -56,6 +61,8 @@ export default class AdminContainer extends Component {
 					<Switch>
 						<Route path='/controlpanel/login/admin'>
 							<Login 
+							admin={this.state.admin}
+							errorMsg={this.state.errorMsg}
 							loginAdmin={this.loginAdmin}
 							changeState={this.props.changeState}/>
 						</Route>
@@ -71,7 +78,10 @@ export default class AdminContainer extends Component {
 
 function Login(props) {
 
-  return <LoginContainer 
+  return props.admin ? null 
+  			: 
+  			<LoginContainer 
+  			errorMsg={props.errorMsg}
   			changeState={props.changeState}
   			loginAdmin={props.loginAdmin}
   			/>

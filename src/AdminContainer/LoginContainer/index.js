@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './index.css'
 export default class LoginContainer extends Component {
 	constructor(props){
 		props.changeState()
@@ -32,10 +32,11 @@ export default class LoginContainer extends Component {
 		}
 
 	render(){
-		console.log(this.state);
+		console.log(this.props.errorMsg);
 		return(
 			<React.Fragment>
 				<div id='login-'>
+					<p className='error-msg'>{this.props.errorMsg}</p>
 					<form id='login-form' onSubmit={this.onSubmit}>
 						<fieldset>
 							<legend>Login Here</legend>
