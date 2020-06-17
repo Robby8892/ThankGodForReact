@@ -12,6 +12,7 @@ export default class TreatContainer extends Component {
 		this.state = {
 			name: '',
 			price: '',
+			description: '',
 			imgOfTreat: ''
 		}
 	}
@@ -75,6 +76,15 @@ export default class TreatContainer extends Component {
 								onChange={this.onChange}
 								/>
 							<br/>
+							<label htmlFor="description">Treat description:</label>
+							<textarea
+								name='description'
+								type='text'
+								id='description'
+								required minLength='1' 
+								value={this.state.description}
+								onChange={this.onChange}
+							></textarea>
 							<label htmlFor="imgOfTreat">Image of treat:</label>
 							<input 
 								id='imgOfTreat' 
