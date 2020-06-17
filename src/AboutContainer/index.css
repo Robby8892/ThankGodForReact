@@ -41,17 +41,40 @@
 }
 
 .testimony-container {
-	position: absolute;
+	position: relative;
 	width: 280px;
 	height: 2817px;
-	left: 570px;
-	top: 166.34px;
+	left: 57em;
+	top: -30em;
+}
+
+.testimony-item {
+	width: 20%;
 
 	font-family: Advent Pro;
 	font-style: normal;
 	font-weight: 500;
 	font-size: 20px;
 	line-height: 24px;
+
+	color: #000000;
+}
+
+.testimony {
+	position: relative;
+	width: 162px;
+	height: 22px;
+	left: 53em;
+	top: -27em;
+
+	font-family: Advent Pro;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+
+
+	text-align: center;
 
 	color: #000000;
 }
