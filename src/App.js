@@ -25,7 +25,7 @@ export default class App extends Component {
   }
 
   changeState = () => {
-    if(this.state.admin == false ){
+    if(this.state.admin === false ){
       this.setState({
         home: false,
         about: false,
@@ -40,7 +40,7 @@ export default class App extends Component {
   }
 
   navChange = e => {
-    if(e.currentTarget.name == 'home'){
+    if(e.currentTarget.name === 'home'){
       this.setState({
         home: true,
         about: false,
@@ -49,7 +49,7 @@ export default class App extends Component {
         cart: false
       })
     }
-    if(e.currentTarget.name == 'about'){
+    if(e.currentTarget.name === 'about'){
       this.setState({
         home: false,
         about: true,
@@ -58,7 +58,7 @@ export default class App extends Component {
         cart: false
       })
     }
-    if(e.currentTarget.name == 'treats'){
+    if(e.currentTarget.name === 'treats'){
       this.setState({
         home: false,
         about: false,
@@ -67,7 +67,7 @@ export default class App extends Component {
         cart: false
       })
     }
-    if(e.currentTarget.name == 'photosReviews'){
+    if(e.currentTarget.name === 'photosReviews'){
       this.setState({
         home: false,
         about: false,
@@ -76,7 +76,7 @@ export default class App extends Component {
         cart: false
       })
     }
-    if(e.currentTarget.name == 'cart'){
+    if(e.currentTarget.name === 'cart'){
       this.setState({
         home: false,
         about: false,

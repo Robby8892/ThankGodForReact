@@ -34,7 +34,7 @@ export default function homeContainer(){
 		 <div className="slide-container">
 		  <Zoom {...zoomOutProperties}>
 		    {
-		      images.map((each, index) => <img  key={index} style={{width: "100%"}} src={each} />)
+		      images.map((each, index) => <img  key={index} style={{width: "100%"}} src={each} alt={'image of a treat on the site'} />)
 		    }
 		  </Zoom>
 		</div>
