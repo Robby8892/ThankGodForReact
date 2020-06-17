@@ -15,8 +15,7 @@ export default class TreatContainer extends Component {
 
 	onSubmit = e => {
 		e.preventDefault()
-		console.log('wtf are you doing?');
-		// this.props.createTreatCall(this.state)
+		this.props.createTreatCall(this.state)
 	}
 
 	onChange = e => {
@@ -48,7 +47,7 @@ export default class TreatContainer extends Component {
 		return(
 			<React.Fragment>
 				<div id='login'>
-					<form id='login-form'>
+					<form id='login-form' onSubmit={this.onSubmit}>
 						<fieldset>
 							<legend>Add Treats to Site</legend>
 							<label htmlFor="name">Name of treat:</label>
