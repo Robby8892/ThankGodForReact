@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import LoginContainer from './LoginContainer'
+import TreatContainer from './TreatContainer'
 import axios from 'axios';
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route,
-	Link
+	Link,
+	Redirect
 } from 'react-router-dom'
 
 export default class AdminContainer extends Component {
@@ -15,13 +17,14 @@ export default class AdminContainer extends Component {
 				admin: false,
 				adminName: '',
 				adminId: '',
-				errorMsg: ''
+				errorMsg: '',
+				createTreat: false,
+				redirect: null
 			}
 		}
 		
 		loginAdmin = async (loginInfo) => {
 			try{
-				console.log('here is loginInfo', loginInfo);
 				const loginResponse = await axios.post(process.env.REACT_APP_API_URI + '/admin/login', {
 					data: loginInfo
 				})
@@ -31,8 +34,10 @@ export default class AdminContainer extends Component {
 							admin: true,
 							adminName: res.data.loginName,
 							adminId: res.data.adminId,
+							createTreat: true,
 							errorMsg: ''
 						})
+						this.updateUrl()
 					} else {
 						this.setState({
 							errorMsg: 'Invalid credentials.'
@@ -43,41 +48,70 @@ export default class AdminContainer extends Component {
 				console.log(error);
 			}
 	}
+	updateUrl = () => {
+		this.setState({
+			redirect: '/controlpanel/create/treat/admin'
+		})
+
+		if(this.state.redirect){
+			return <Redirect to={this.state.redirect}/>
+		}
+	}
+
 	render(){
 		return(
-			<Router>
-				<div>
-					<nav>
-						<ul>
-							<li>
-								<Link to ='/controlpanel/login/_admin'></Link>
-							</li>
-								<Link to ='/create'></Link>
-							<li>
-								
-							</li>
-						</ul>
-					</nav>
-					<Switch>
-						<Route path='/controlpanel/login/admin'>
-							<Login 
-							admin={this.state.admin}
-							errorMsg={this.state.errorMsg}
-							loginAdmin={this.loginAdmin}
-							changeState={this.props.changeState}/>
-						</Route>
-						<Route path='/create'>
-							<Create/>
-						</Route>
-					</Switch>
-				</div>
-			</Router>
+			<React.Fragment>
+				<RouterComp
+				admin={this.state.admin}
+				errorMsg={this.state.errorMsg}
+				loginAdmin={this.loginAdmin}
+				changeState={this.props.changeState}
+				createTreat={this.state.createTreat}
+				redirect={this.state.redirect}
+				/>
+			</React.Fragment>
 		)
 	}
 }
 
-function Login(props) {
+function RouterComp(props) {
+	return(
+		<Router>
+			<div>
+				<nav>
+					<ul>
+						<li>
+							<Link to ='/controlpanel/login/_admin'></Link>
+						</li>
+							{props.admin ? <Link to ='/controlpanel/create/treat/admin'>Create A Treat</Link> : null}
+						<li>
+							
+						</li>
+					</ul>
+				</nav>
+				<Switch>
+					<Route path='/controlpanel/login/admin'>
+						<Login 
+						admin={props.admin}
+						errorMsg={props.errorMsg}
+						loginAdmin={props.loginAdmin}
+						changeState={props.changeState}
+						/>
+					</Route>
+					<Route path='/controlpanel/create/treat/admin'>
+						<Create
+							createTreat={props.createTreat}
+							changeState={props.changeState}
+							admin={props.admin}
+							/>
+					</Route>
+				</Switch>
+			</div>
+		</Router>
+	)
+}
 
+function Login(props) {
   return props.admin ? null 
   			: 
   			<LoginContainer 
@@ -88,7 +122,23 @@ function Login(props) {
 
 }
 
-function Create() {
-  return <h2>Create</h2>;
-}
 
+function Create(props) {
+	console.log(props.createTreat);
+	if(!props.createTreat){
+		props.changeState()
+		console.log('i am here when createTreat is false');
+		return(
+			<React.Fragment>
+				<h1>404 Error</h1>
+				<p>You are trying to access a page you do not have acces to</p>
+			</React.Fragment>	
+			)
+	} else {
+		console.log('i made it here because create treat is true');
+		return(<TreatContainer
+					changeState={props.changeState}
+					/> 
+		)
+	}
+}

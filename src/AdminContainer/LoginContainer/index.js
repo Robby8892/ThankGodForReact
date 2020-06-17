@@ -32,10 +32,10 @@ export default class LoginContainer extends Component {
 		}
 
 	render(){
-		console.log(this.props.errorMsg);
+
 		return(
 			<React.Fragment>
-				<div id='login-'>
+				<div id='login'>
 					<p className='error-msg'>{this.props.errorMsg}</p>
 					<form id='login-form' onSubmit={this.onSubmit}>
 						<fieldset>
@@ -46,6 +46,7 @@ export default class LoginContainer extends Component {
 								type="text" 
 								name="loginName" 
 								placeholder="Enter your login name"
+								required minLength='1' 
 								value={this.state.loginName}
 								onChange={this.onChange}
 								/>
@@ -55,6 +56,7 @@ export default class LoginContainer extends Component {
 								type="password" 
 								name="password" 
 								placeholder="Enter your password"
+								required minLength='1' 
 								value={this.state.password}
 								onChange={this.onChange}
 								/>

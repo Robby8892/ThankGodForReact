@@ -20,7 +20,8 @@ export default class App extends Component {
       photosReviews: false,
       cart: false,
       navBar: true,
-      admin: false
+      admin: false,
+      createTreat: false
     }
   }
 
@@ -36,6 +37,17 @@ export default class App extends Component {
         admin: true
       })
 
+    }
+    if(this.state.createTreat === false && this.state.admin === true){
+      this.setState({
+        home: false,
+        about: false,
+        treats: false,
+        photosReviews: false,
+        cart: false,
+        navBar: false,
+        createTreat: true
+      })
     }
   }
 
