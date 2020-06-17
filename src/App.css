@@ -42,7 +42,7 @@ ul {
 
 .reviews {
   position: relative;
-  margin: -10em 4em;
+  margin: -15em 4em;
 }
 
 .review-item {
@@ -62,10 +62,10 @@ ul {
 
 .contact {
   position: absolute;
-  width: 50%;
+  width: 167px;
   height: 32px;
-  left: 38.5em;
-  top: 12.5em;
+  left: 55em;
+  top: 12em;
 
   font-family: Advent Pro;
   font-style: normal;
@@ -75,13 +75,15 @@ ul {
   text-align: center;
 
   color: #000000;
+
 }
 
 .phone {
   position: absolute;
-  width: 50%;
-  left: 38.5em;
-  top: 15.5em;
+  width: 210px;
+  height: 29px;
+  left: 53.5em;
+  top: 14em;
 
   font-family: Advent Pro;
   font-style: normal;
@@ -91,13 +93,15 @@ ul {
   text-align: center;
 
   color: #000000;
+
 }
 
 .email {
   position: absolute;
-  width: 50%;
-  left: 38.5em;
-  top: 19.5em;
+  width: 252px;
+  height: 29px;
+  left: 52.5em;
+  top: 16em;
 
   font-family: Advent Pro;
   font-style: normal;
@@ -107,33 +111,37 @@ ul {
   text-align: center;
 
   color: #000000;
+
 }
 
 .instagram, .facebook {
   position: relative;
-  left: 62.5em;
-  top: .1em;
-  margin: 0 2em 0 2em;
+  left: 66.5em;
+  top: -5em;
+  margin: 2em;
+  z-index: 1;
 }
 
 .cashapp {
   position: relative;
-  left: 48.5em;
-  top: 10.9em;
+  left: 65.5em;
+  top: -.1em;
   margin: 0 3em 0 3em;
 }
 
 .venmo {
   position: absolute;
-  left: 70.5em;
-  top: 40.3em;
+  left: 75.5em;
+  top: 35.3em;
 }
+
 
 .payment-options {
   position: absolute;
-  width: 50%;
-  left: 38.2em;
-  top: 28em;
+  width: 167px;
+  height: 32px;
+  left: 54.5em;
+  top: 25em;
 
   font-family: Advent Pro;
   font-style: normal;
@@ -141,6 +149,8 @@ ul {
   font-size: 20px;
   line-height: 24px;
   text-align: center;
+
+  color: #000000;
 
 }
 
@@ -149,15 +159,4 @@ ul {
   width: 20%;
   left: 35em;
   top: 15em;
-}
-
-
-
-
-
-figure {
-  display: flex;
-  padding: 5px;
-  max-width: 220px;
-  margin: auto;
 }
