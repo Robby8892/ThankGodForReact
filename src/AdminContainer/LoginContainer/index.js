@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 
 export default class LoginContainer extends Component {
 	constructor(props){
-		console.log(props);
 		props.changeState()
 		super()
 		this.state = {
-			adminName: String,
-			adminId: String,
+			loginName: '',
+			password: ''
 		}
 	}
 		onSubmit = e => {
@@ -15,8 +14,25 @@ export default class LoginContainer extends Component {
 			this.props.loginAdmin(this.state)
 		}
 
+		onChange = e => {
+			this.setState({
+				[e.target.name]: e.target.value
+			})
+		}
+
+		clearForm = () => {
+			this.setState({
+				loginName: '',
+				password: ''
+			})
+		}
+
+		componentDidMount() {
+			this.clearForm()
+		}
 
 	render(){
+		console.log(this.state);
 		return(
 			<React.Fragment>
 				<div id='login-'>
@@ -24,9 +40,23 @@ export default class LoginContainer extends Component {
 						<fieldset>
 							<legend>Login Here</legend>
 							<label htmlFor="loginName"></label>
-							<input id='loginName' type="text" name="username" placeholder="Enter your login name"/>
+							<input 
+								id='loginName' 
+								type="text" 
+								name="loginName" 
+								placeholder="Enter your login name"
+								value={this.state.loginName}
+								onChange={this.onChange}
+								/>
 							<label htmlFor="password"></label>
-							<input id='password' type="password" name="password" placeholder="Enter your password"/>
+							<input 
+								id='password' 
+								type="password" 
+								name="password" 
+								placeholder="Enter your password"
+								value={this.state.password}
+								onChange={this.onChange}
+								/>
 							<button>Login</button>
 						</fieldset>
 					</form>
