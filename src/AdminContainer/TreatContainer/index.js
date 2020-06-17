@@ -10,6 +10,30 @@ export default class TreatContainer extends Component {
 			imgOfTreat: ''
 		}
 	}
+	onSubmit = e => {
+		e.preventDefault()
+		this.props.loginAdmin(this.state)
+	}
+
+	onChange = e => {
+		console.log('here is img', e.target.imgOfTreat);
+		console.log('here is value', e.target.value);
+		this.setState({
+			[e.target.name]: e.target.value
+		})
+	}
+
+	clearForm = () => {
+		this.setState({
+			imgOfTreat: '',
+			price: '',
+			name: ''
+		})
+	}
+
+	componentDidMount() {
+		this.clearForm()
+	}
 
 	render(){
 		return(
@@ -24,16 +48,20 @@ export default class TreatContainer extends Component {
 								type="text" 
 								name="name" 
 								placeholder="Enter name of treat"
-								required minLength='1' 
+								required minLength='1'
+								value={this.state.name} 
 								/>
+							<br/>
 							<label htmlFor="price">Price of treat:</label>
 							<input 
 								id='price' 
 								type="number" 
 								name="price" 
-								placeholder="Enter the numerical value for the price"
+								placeholder="Enter the price"
 								required minLength='1' 
+								value={this.state.price}
 								/>
+							<br/>
 							<label htmlFor="imgOfTreat">Image of treat:</label>
 							<input 
 								id='imgOfTreat' 
@@ -41,6 +69,7 @@ export default class TreatContainer extends Component {
 								name="imgOfTreat" 
 								required minLength='1' 
 								/>
+							<br/>	
 							<button>Submit Treat</button>
 						</fieldset>
 					</form>
