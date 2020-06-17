@@ -1,3 +1,5 @@
+@import-normalize;
+
 .about-me-header {
 	position: absolute;
 	width: 143px;
@@ -54,12 +56,12 @@
 	color: #000000;
 }
 
-.founder-container {
+.founder-header {
 
-	position: absolute;
+	position: relative;
 	width: 216px;
 	height: 45px;
-	left: 300.99px;
+	left: 25em;
 	top: 400.34px;
 
 	font-family: Advent Pro;
@@ -74,24 +76,23 @@
 }
 
 .founder-img {
-	position: absolute;
+	position: relative;
 	width: 166px;
 	height: 250px;
-	left: 322.99px;
-	top: 445.34px;
+	left: 30em;
+	top: 24em;
 
 }
 
 .mission-statement {
-	position: absolute;
+	position: relative;
 	width: 267px;
 	height: 84px;
-	left: 279.99px;
-	top: 695.34px;
+	left: 24em;
+	top: 22.2em;
 
 	font-family: Advent Pro;
 	font-style: normal;
-	font-weight: 600;
 	font-size: 18px;
 	line-height: 22px;
 	text-align: center;

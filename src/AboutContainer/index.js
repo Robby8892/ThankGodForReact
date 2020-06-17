@@ -1,6 +1,8 @@
 import React from 'react'
 import './index.css'
 
+import founderImg from '../photos/founder.png'
+
 export default function AboutContainer(){
 	return(
 		<React.Fragment>
@@ -25,6 +27,13 @@ export default function AboutContainer(){
 					Founder & CEO; We're In This Together Fitness, LLC
 				</li>
 			</ul>
+
+			<h3 className='founder-header'>Founder</h3>
+			<h3 className='founder-header'>Michelle Scott</h3>
+			<img className='founder-img' src={founderImg} alt={'the image of the founder of thank god for raw and vegan treats'}/>
+			<p className='mission-statement'>
+				<strong>My Mission</strong>: To create plantbase treats that inspire, empower, enlightened, and encourage individuals to live healthier, happier lives.
+			</p>
 		</React.Fragment>
 	)
 }

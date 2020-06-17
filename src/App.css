@@ -1,3 +1,5 @@
+@import-normalize;
+
 .title {
   position: relative;
   width: 846.8px;
@@ -64,7 +66,7 @@ ul {
   position: absolute;
   width: 167px;
   height: 32px;
-  left: 55em;
+  left: 45em;
   top: 12em;
 
   font-family: Advent Pro;
@@ -82,7 +84,7 @@ ul {
   position: absolute;
   width: 210px;
   height: 29px;
-  left: 53.5em;
+  left: 43.5em;
   top: 14em;
 
   font-family: Advent Pro;
@@ -100,7 +102,7 @@ ul {
   position: absolute;
   width: 252px;
   height: 29px;
-  left: 52.5em;
+  left: 42.5em;
   top: 16em;
 
   font-family: Advent Pro;
@@ -116,7 +118,7 @@ ul {
 
 .instagram, .facebook {
   position: relative;
-  left: 66.5em;
+  left: 54.5em;
   top: -5em;
   margin: 2em;
   z-index: 1;
@@ -124,15 +126,15 @@ ul {
 
 .cashapp {
   position: relative;
-  left: 65.5em;
+  left: 53.5em;
   top: -.1em;
   margin: 0 3em 0 3em;
 }
 
 .venmo {
   position: absolute;
-  left: 75.5em;
-  top: 35.3em;
+  left: 63.4em;
+  top: 33.9em;
 }
 
 
@@ -140,8 +142,8 @@ ul {
   position: absolute;
   width: 167px;
   height: 32px;
-  left: 54.5em;
-  top: 25em;
+  left: 44.5em;
+  top: 24em;
 
   font-family: Advent Pro;
   font-style: normal;
