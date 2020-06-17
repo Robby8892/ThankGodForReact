@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import './index.css'
 
 
 export default class TreatContainer extends Component {
@@ -13,12 +13,13 @@ export default class TreatContainer extends Component {
 			name: '',
 			price: '',
 			description: '',
-			imgOfTreat: ''
+			imgOfTreat: null,
 		}
 	}
 
 	onSubmit = e => {
 		e.preventDefault()
+		this.clearForm()
 		this.props.createTreatCall(this.state)
 	}
 
@@ -37,9 +38,10 @@ export default class TreatContainer extends Component {
 
 	clearForm = () => {
 		this.setState({
-			imgOfTreat: '',
+			imgOfTreat: null,
 			price: '',
-			name: ''
+			name: '',
+			description: ''
 		})
 	}
 
@@ -48,9 +50,12 @@ export default class TreatContainer extends Component {
 	}
 
 	render(){
+
 		return(
 			<React.Fragment>
 				<div id='login'>
+				<span class='msg'>{this.props.message}</span>
+				<span class='err-msg'>{this.props.mes}</span>
 					<form id='login-form' onSubmit={this.onSubmit}>
 						<fieldset>
 							<legend>Add Treats to Site</legend>
@@ -76,15 +81,6 @@ export default class TreatContainer extends Component {
 								onChange={this.onChange}
 								/>
 							<br/>
-							<label htmlFor="description">Treat description:</label>
-							<textarea
-								name='description'
-								type='text'
-								id='description'
-								required minLength='1' 
-								value={this.state.description}
-								onChange={this.onChange}
-							></textarea>
 							<label htmlFor="imgOfTreat">Image of treat:</label>
 							<input 
 								id='imgOfTreat' 
@@ -95,6 +91,16 @@ export default class TreatContainer extends Component {
 								onChange={this.handleFile}
 								/>
 							<br/>	
+							<label htmlFor="description">Treat description:</label>
+							<textarea
+								name='description'
+								type='text'
+								id='description'
+								required minLength='1' 
+								value={this.state.description}
+								onChange={this.onChange}
+							></textarea>
+							<br/>
 							<button>Submit Treat</button>
 						</fieldset>
 					</form>

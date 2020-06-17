@@ -19,7 +19,7 @@ export default class AdminContainer extends Component {
 				adminId: '',
 				errorMsg: '',
 				createTreat: false,
-				redirect: null
+				message: ''
 			}
 		}
 		
@@ -56,11 +56,18 @@ export default class AdminContainer extends Component {
 			formData.append('imgOfTreat', treatInfo.imgOfTreat)
 			formData.append('name', treatInfo.name)
 			formData.append('price', treatInfo.price)
+			formData.append('description', treatInfo.description)
+
 
 			const createdTreatResponse = await axios.post(process.env.REACT_APP_API_URI + 'treat/new', formData)
 				.then(res => {
 					if(res.data.status === 200){
-					console.log('here is status', );
+					console.log(res.data, 'here is the created treat');
+					this.setState({message: 'You have created a new treat. Go to the main site to see how it looks!'})
+				} else {
+					this.setState({
+						errorMsg: 'That treat already exists on the site.'
+					})
 				}
 			})
 
@@ -93,6 +100,7 @@ export default class AdminContainer extends Component {
 				createTreat={this.state.createTreat}
 				redirect={this.state.redirect}
 				createTreatCall={this.createTreat}
+				message={this.state.message}
 				/>
 			</React.Fragment>
 		)
@@ -129,6 +137,8 @@ function RouterComp(props) {
 							changeState={props.changeState}
 							admin={props.admin}
 							createTreatCall={props.createTreatCall}
+							message={props.message}
+							errorMsg={props.errorMsg}
 							/>
 					</Route>
 				</Switch>
@@ -153,7 +163,7 @@ function Create(props) {
 	console.log(props.createTreat);
 	if(!props.createTreat){
 		props.changeState()
-		console.log('i am here when createTreat is false');
+		
 		return(
 			<React.Fragment>
 				<h1>404 Error</h1>
@@ -161,10 +171,12 @@ function Create(props) {
 			</React.Fragment>	
 			)
 	} else {
-		console.log('i made it here because create treat is true');
+		
 		return(<TreatContainer
 					changeState={props.changeState}
 					createTreatCall={props.createTreatCall}
+					message={props.message}
+					errorMsg={props.errorMsg}
 					/> 
 		)
 	}
