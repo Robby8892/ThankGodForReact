@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+const formData = new FormData()
+
 export default class TreatContainer extends Component {
 	constructor(props){
 		props.changeState()
@@ -10,16 +12,23 @@ export default class TreatContainer extends Component {
 			imgOfTreat: ''
 		}
 	}
+
 	onSubmit = e => {
 		e.preventDefault()
-		this.props.loginAdmin(this.state)
+		console.log('wtf are you doing?');
+		// this.props.createTreatCall(this.state)
 	}
 
 	onChange = e => {
-		console.log('here is img', e.target.imgOfTreat);
-		console.log('here is value', e.target.value);
+
 		this.setState({
-			[e.target.name]: e.target.value
+			[e.target.name]: e.target.value,
+		})
+	}
+
+	onChangeImg = e => {
+		this.setState({
+			imgOfTreat: e.target.files[0]
 		})
 	}
 
@@ -49,7 +58,8 @@ export default class TreatContainer extends Component {
 								name="name" 
 								placeholder="Enter name of treat"
 								required minLength='1'
-								value={this.state.name} 
+								value={this.state.name}
+								onChange={this.onChange} 
 								/>
 							<br/>
 							<label htmlFor="price">Price of treat:</label>
@@ -60,6 +70,7 @@ export default class TreatContainer extends Component {
 								placeholder="Enter the price"
 								required minLength='1' 
 								value={this.state.price}
+								onChange={this.onChange}
 								/>
 							<br/>
 							<label htmlFor="imgOfTreat">Image of treat:</label>
@@ -68,6 +79,7 @@ export default class TreatContainer extends Component {
 								type="file" 
 								name="imgOfTreat" 
 								required minLength='1' 
+								onChange={this.onChangeImg}
 								/>
 							<br/>	
 							<button>Submit Treat</button>
@@ -78,3 +90,5 @@ export default class TreatContainer extends Component {
 		)
 	}
 }
+
+

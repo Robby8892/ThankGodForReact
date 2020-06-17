@@ -23,31 +23,50 @@ export default class AdminContainer extends Component {
 			}
 		}
 		
-		loginAdmin = async (loginInfo) => {
-			try{
-				const loginResponse = await axios.post(process.env.REACT_APP_API_URI + '/admin/login', {
-					data: loginInfo
-				})
-				.then(res => {
-					if(res.data.status === 200){
-						this.setState({
-							admin: true,
-							adminName: res.data.loginName,
-							adminId: res.data.adminId,
-							createTreat: true,
-							errorMsg: ''
-						})
-						this.updateUrl()
-					} else {
-						this.setState({
-							errorMsg: 'Invalid credentials.'
-						})
-					}
-				})
-			}catch(error){
-				console.log(error);
-			}
+	loginAdmin = async (loginInfo) => {
+		try{
+			const loginResponse = await axios.post(process.env.REACT_APP_API_URI + '/admin/login', {
+				data: loginInfo
+			})
+			.then(res => {
+				if(res.data.status === 200){
+					this.setState({
+						admin: true,
+						adminName: res.data.loginName,
+						adminId: res.data.adminId,
+						createTreat: true,
+						errorMsg: ''
+					})
+					this.updateUrl()
+				} else {
+					this.setState({
+						errorMsg: 'Invalid credentials.'
+					})
+				}
+			})
+		}catch(error){
+			console.log(error);
+		}
+}
+
+	createTreat = async (treatInfo) => {
+		console.log('here is treatInfo', treatInfo);
+		// try{
+		// 	const createdTreatResponse = await axios.post(process.env.REACT_APP_API_URI + '/treat/new', {
+		// 		data: treatInfo
+		// 	})
+		// 	.then(res => {
+		// 		if(res.data.status === 200){
+		// 			console.log('here is your data', res.data);
+		// 		}
+		// 	})
+		// }catch(error){
+		// 	console.log(error);
+		// }
 	}
+
+
+	// I will need to learn more router and redirect to do this effecitvely 
 	updateUrl = () => {
 		this.setState({
 			redirect: '/controlpanel/create/treat/admin'
@@ -57,6 +76,7 @@ export default class AdminContainer extends Component {
 			return <Redirect to={this.state.redirect}/>
 		}
 	}
+
 
 	render(){
 		return(
@@ -68,6 +88,7 @@ export default class AdminContainer extends Component {
 				changeState={this.props.changeState}
 				createTreat={this.state.createTreat}
 				redirect={this.state.redirect}
+				createTreatCall={this.createTreat}
 				/>
 			</React.Fragment>
 		)
@@ -103,6 +124,7 @@ function RouterComp(props) {
 							createTreat={props.createTreat}
 							changeState={props.changeState}
 							admin={props.admin}
+							createTreatCall={props.createTreatCall}
 							/>
 					</Route>
 				</Switch>
@@ -138,6 +160,7 @@ function Create(props) {
 		console.log('i made it here because create treat is true');
 		return(<TreatContainer
 					changeState={props.changeState}
+					createTreatCall={props.createTreatCall}
 					/> 
 		)
 	}
