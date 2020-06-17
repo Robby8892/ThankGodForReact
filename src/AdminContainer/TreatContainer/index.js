@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 
-const formData = new FormData()
+
 
 export default class TreatContainer extends Component {
 	constructor(props){
 		props.changeState()
 		super()
+		this.handleFile = this.handleFile.bind(this);
+		this.onSubmit = this.onSubmit.bind(this)
+
 		this.state = {
 			name: '',
 			price: '',
@@ -25,7 +28,7 @@ export default class TreatContainer extends Component {
 		})
 	}
 
-	onChangeImg = e => {
+	handleFile = e => {
 		this.setState({
 			imgOfTreat: e.target.files[0]
 		})
@@ -77,8 +80,9 @@ export default class TreatContainer extends Component {
 								id='imgOfTreat' 
 								type="file" 
 								name="imgOfTreat" 
+								accept="image/png, image/jpeg"
 								required minLength='1' 
-								onChange={this.onChangeImg}
+								onChange={this.handleFile}
 								/>
 							<br/>	
 							<button>Submit Treat</button>

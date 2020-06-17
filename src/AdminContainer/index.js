@@ -25,7 +25,7 @@ export default class AdminContainer extends Component {
 		
 	loginAdmin = async (loginInfo) => {
 		try{
-			const loginResponse = await axios.post(process.env.REACT_APP_API_URI + '/admin/login', {
+			const loginResponse = await axios.post(process.env.REACT_APP_API_URI + 'admin/login', {
 				data: loginInfo
 			})
 			.then(res => {
@@ -50,19 +50,23 @@ export default class AdminContainer extends Component {
 }
 
 	createTreat = async (treatInfo) => {
-		console.log('here is treatInfo', treatInfo);
-		// try{
-		// 	const createdTreatResponse = await axios.post(process.env.REACT_APP_API_URI + '/treat/new', {
-		// 		data: treatInfo
-		// 	})
-		// 	.then(res => {
-		// 		if(res.data.status === 200){
-		// 			console.log('here is your data', res.data);
-		// 		}
-		// 	})
-		// }catch(error){
-		// 	console.log(error);
-		// }
+		try{
+			// I have to create two api calls for creation so that I can have file data, and price, and name data
+			let formData = new FormData()
+			formData.append('imgOfTreat', treatInfo.imgOfTreat)
+			formData.append('name', treatInfo.name)
+			formData.append('price', treatInfo.price)
+
+			const createdTreatResponse = await axios.post(process.env.REACT_APP_API_URI + 'treat/new', formData)
+				.then(res => {
+					if(res.data.status === 200){
+					console.log('here is status', );
+				}
+			})
+
+		}catch(error){
+			console.log(error);
+		}
 	}
 
 
