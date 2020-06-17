@@ -1,27 +1,45 @@
 import React, { Component } from 'react'
 import './App.css'
-import Navbar from './Navbar.js'
-import shoppingCart from './photos/shopping-cart.png'
-import logo from './photos/LOGO.png'
+import NavbarContainer from './NavbarContainer'
 
 import AboutContainer from './AboutContainer'
 import HomeContainer from './HomeContainer'
 
+import AdminContainer from './AdminContainer'
 
+// I need to use react router to create a unique admin page
+// that will be used to add treats to the website 
 
 export default class App extends Component {
   constructor(){
     super()
     this.state = {
       home: false,
-      about: true,
+      about: false,
       treats: false,
       photosReviews: false,
-      cart: false
+      cart: false,
+      navBar: true,
+      admin: false
     }
   }
 
-  navBar = e => {
+  changeState = () => {
+    if(this.state.admin == false ){
+      this.setState({
+        home: false,
+        about: false,
+        treats: false,
+        photosReviews: false,
+        cart: false,
+        navBar: false,
+        admin: true
+      })
+
+    }
+  }
+
+  navChange = e => {
     if(e.currentTarget.name == 'home'){
       this.setState({
         home: true,
@@ -73,16 +91,8 @@ export default class App extends Component {
 
   return (
       <div>
-        <h1 className='title'><img src={logo} alt={'image of website name, thank god for raw & vegan treats'}/></h1>
-        <nav className='nav-bar'>
-          <ul>
-            <li className='nav-bar-item'><a name='home' onClick={this.navBar} href='#'>Home</a></li>
-            <li className='nav-bar-item'><a name='treats' onClick={this.navBar} href='#'>Treats</a></li>
-            <li className='nav-bar-item'><a name='photosReviews' onClick={this.navBar} href='#'>Photos & Reviews</a></li>
-            <li className='nav-bar-item'><a name='about' onClick={this.navBar} href='#'>About</a></li>
-            <li className='nav-bar-item'><a name='cart' onClick={this.navBar} href='#'><img className='shopping-cart' src={shoppingCart} alt={'shopping cart image'}/></a></li>
-          </ul>
-        </nav>
+        <AdminContainer changeState={this.changeState}/>
+        {this.state.navBar ? <NavbarContainer navBar={this.navBar}/> : null}
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
       </div>
