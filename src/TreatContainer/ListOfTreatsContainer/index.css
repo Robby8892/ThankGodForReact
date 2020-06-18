@@ -1,42 +1,43 @@
+.drop-down-option {
+
+	pointer-events: all;
+}
+
+
 .img-container {
+
 	display: inline-block;
 	text-align: center;
 	align-content: center;
 }
 
 .image {
-	margin: 1em 1em 10em 5em;
+	margin: 10em 5em 1em 5em;
 	width: 11em;
 	height: 12em;
 	transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
+
+
 .name-of-treat {
-	position: relative;
-	margin: -6em .1em -6em 1em;
 
 	font-family: Advent Pro;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
 	line-height: 22px;
-	text-align: center;
 
 	color: #000000;
 }
 
 .description {
-	position: relative;
+	margin: 0 5em 0 5em;
 	width: 13em;
-	margin: -24em 2em 0 4.5em;
-	top: 366.33px;
 	color: #000000;
 }
 
 .price {
-	position: relative;
-	margin: 28em 0 25em 4em;
-
 
 	font-family: Advent Pro;
 	font-style: normal;
@@ -50,12 +51,8 @@
 }
 
 .order-button {
-	position: relative;
-	width: 5em;
 
-	top: -22.5em;
-	left: 9em;
-	display: flex;
+	width: 5em;
 
 	font-family: Advent Pro;
 	font-style: normal;
@@ -65,12 +62,4 @@
 	text-align: center;
 }
 
-.quantity-container {
-	position: relative;
-	z-index: 1;
-	margin: 0 1em 0 10em;
-}
 
-.quantity {
-
-}

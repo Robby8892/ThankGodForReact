@@ -22,7 +22,8 @@ export default class App extends Component {
       admin: false,
       createTreat: false,
       userCart: [],
-      cartModal: false
+      cartModal: false,
+      quantity: 0
     }
   }
 
