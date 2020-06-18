@@ -29,7 +29,14 @@ export default class CartContainer extends Component {
 	updateCart = async (treatId) => {
 		const updatedCartResponse = await axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`)
 			.then(res => {
-				console.log('here is the update cart', res.data);
+				console.log('here is the update cart', res.data.data);
+				const treatsInCart = this.state.treatsInCart
+
+				treatsInCart.push(res.data.data)
+				this.setState({
+					treatsInCart: treatsInCart
+				})
+
 			})
 	}
 
@@ -38,6 +45,7 @@ export default class CartContainer extends Component {
 	}
 
 	render(){
+		console.log(this.state);
 		return(
 			<React.Fragment>
 				{this.props.treatPage ? <TreatContainer
