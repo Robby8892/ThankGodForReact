@@ -16,22 +16,21 @@ export default class CartContainer extends Component {
 // then I can use that for my update fetch call
 	createCart = async () => {
 		const cartResponse = await axios.post(process.env.REACT_APP_API_URI + 'cart/new')
-			.then( res => {
+			.then(res => {
 				console.log('here is a good response',res.data);
 				this.setState({
 					cart: true,
-					cartId: res.data._id
+					cartId: res.data.data._id
 				})
 				
 			})
 	}
 
 	updateCart = async (treatId) => {
-		console.log('here is treatId', treatId);
-	}
-
-	onClick = (e) => {
-		console.log(e.target);
+		const updatedCartResponse = await axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`)
+			.then(res => {
+				console.log('here is the update cart', res.data);
+			})
 	}
 
 	componentDidMount(){
