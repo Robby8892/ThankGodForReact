@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import ListOfTreatsContainer from './ListOfTreatsContainer'
 
 export default class TreatContainer extends Component {
 	constructor(props){
@@ -28,10 +29,11 @@ export default class TreatContainer extends Component {
 	}
 
 	render(){
-		console.log(this.state);
 		return(
 			<React.Fragment>
-				TreatContainer
+				<ListOfTreatsContainer
+				treats={this.state.treats}
+				/>
 			</React.Fragment>
 		)
 	}
