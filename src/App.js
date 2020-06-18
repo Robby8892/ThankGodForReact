@@ -6,7 +6,7 @@ import HomeContainer from './HomeContainer'
 import AdminContainer from './AdminContainer'
 import TreatContainer from './TreatContainer'
 import CartContainer from './TreatContainer/CartContainer'
-
+import CartModal from './NavbarContainer/CartModal'
 
 
 export default class App extends Component {
@@ -121,6 +121,7 @@ export default class App extends Component {
         getCartDetails={this.getCartDetails}
         treatPage={this.state.treats}
         />
+        <CartModal/>
       </div>
     );
   }
