@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import './index.css'
 
 export default function ListOfTreatsContainer(props){
 	console.log(props.treats);
@@ -15,7 +16,7 @@ export default function ListOfTreatsContainer(props){
 		console.log(getImg);
 
 		return(
-				<div key={_id}>
+				<div className='img-container' key={_id}>
 					<img className='image' src={process.env.REACT_APP_API_URI + `image/treat/${_id}`}/>
 					<h3 className='name-of-treat'>{name}</h3>
 					<p className='description'>{description}</p>
