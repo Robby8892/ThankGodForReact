@@ -43,10 +43,8 @@
 .testimony-container {
 	position: relative;
 	width: 280px;
-	height: 2817px;
-	left: 57em;
-	top: -30em;
-
+	left: 65em;
+	top: -34.5em;
 }
 
 .testimony-item {
@@ -102,8 +100,8 @@
 	position: relative;
 	width: 166px;
 	height: 250px;
-	left: 30em;
-	top: 24em;
+	right: 2em;
+	top: 27.5em;
 
 }
 

@@ -118,24 +118,22 @@ ul {
 
 .instagram, .facebook {
   position: relative;
-  left: 54.5em;
-  top: -2em;
+  left: 27.2em;
   margin: 2em;
+  top: -2em;
   z-index: 1;
 }
 
-.cashapp {
+.cashapp, .venmo {
   position: relative;
-  left: 53.5em;
-  top: -.1em;
-  margin: 0 3em 0 3em;
+  left: 27.2em;
+  margin: 2em;
+  top: 1em;
+
 }
 
-.venmo {
-  position: absolute;
-  left: 63.4em;
-  top: 33.1em;
-}
+
+
 
 
 .payment-options {
