@@ -15,7 +15,14 @@ export default function Navbar(props) {
             <li className='nav-bar-item'><a name='treats' onClick={props.navChange} href='#'>Treats</a></li>
             <li className='nav-bar-item'><a name='photosReviews' onClick={props.navChange} href='#'>Photos & Reviews</a></li>
             <li className='nav-bar-item'><a name='about' onClick={props.navChange} href='#'>About</a></li>
-            <li className='nav-bar-item'><a name='cart' onClick={props.navChange} href='#'><img className='shopping-cart' src={shoppingCart} alt={'shopping cart image'}/><span class='badge'>{props.userCart.length > 0 ? props.userCart.length : null}</span></a></li>
+            <li className='nav-bar-item'>
+              <a name='cart' onClick={props.navChange} href='#'>
+                <img className='shopping-cart' src={shoppingCart} alt={'shopping cart image'}/>
+                  <span className='badge'>
+                    {props.userCart.length > 0 ? props.userCart.length : null}
+                  </span>
+              </a>
+            </li>
           </ul>
         </nav>
     </div>

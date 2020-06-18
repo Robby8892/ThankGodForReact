@@ -121,7 +121,9 @@ export default class App extends Component {
         getCartDetails={this.getCartDetails}
         treatPage={this.state.treats}
         />
-        <CartModal/>
+        <CartModal
+          userCartInfo={this.state.userCart}
+        />
       </div>
     );
   }
