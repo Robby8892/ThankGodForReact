@@ -21,7 +21,8 @@ export default class App extends Component {
       navBar: true,
       admin: false,
       createTreat: false,
-      userCart: []
+      userCart: [],
+      cartModal: false
     }
   }
 
@@ -106,14 +107,30 @@ export default class App extends Component {
       })
     }
   }
-  render(){
 
+  openCartModal = () => {
+    this.setState({
+      cartModal: true
+    })
+  }
+
+  closeCartModal = () => {
+    this.setState({
+      cartModal: false
+    })
+  }
+
+
+  render(){
+    console.log('this.state.userCart ', this.state.userCart.length);
 
   return (
       <div>
         <AdminContainer changeState={this.changeState}/>
-        {this.state.navBar ? <NavbarContainer navChange={this.navChange}
+        {this.state.navBar ? <NavbarContainer 
+          navChange={this.navChange}
           userCart={this.state.userCart}
+          openCartModal={this.openCartModal}
           /> : null}
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
@@ -122,6 +139,8 @@ export default class App extends Component {
         treatPage={this.state.treats}
         />
         <CartModal
+          closeCartModal={this.closeCartModal}
+          cartModal={this.state.cartModal}
           userCartInfo={this.state.userCart}
         />
       </div>
