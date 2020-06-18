@@ -1,7 +1,11 @@
 import React from 'react';
+import CartContainer from '../CartContainer'
 
 import shoppingCart from '../photos/shopping-cart.png'
 import logo from '../photos/LOGO.png'
+
+// for my cart to work I need to do a fetch call in CartContainer that will 
+// get a new cart for the user as soon as they hit the site
 
 export default function Navbar(props) {
   return (

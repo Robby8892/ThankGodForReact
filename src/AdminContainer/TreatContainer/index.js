@@ -54,8 +54,8 @@ export default class TreatContainer extends Component {
 		return(
 			<React.Fragment>
 				<div id='login'>
-				<span class='msg'>{this.props.message}</span>
-				<span class='err-msg'>{this.props.mes}</span>
+				<span className='msg'>{this.props.message}</span>
+				<span className='err-msg'>{this.props.mes}</span>
 					<form id='login-form' onSubmit={this.onSubmit}>
 						<fieldset>
 							<legend>Add Treats to Site</legend>

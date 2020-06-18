@@ -119,7 +119,7 @@ ul {
 .instagram, .facebook {
   position: relative;
   left: 54.5em;
-  top: -5em;
+  top: -2em;
   margin: 2em;
   z-index: 1;
 }
@@ -134,7 +134,7 @@ ul {
 .venmo {
   position: absolute;
   left: 63.4em;
-  top: 33.9em;
+  top: 33.1em;
 }
 
 

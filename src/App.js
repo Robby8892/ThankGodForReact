@@ -5,16 +5,17 @@ import AboutContainer from './AboutContainer'
 import HomeContainer from './HomeContainer'
 import AdminContainer from './AdminContainer'
 import TreatContainer from './TreatContainer'
-// I need to use react router to create a unique admin page
-// that will be used to add treats to the website 
+import CartContainer from './CartContainer'
+
+
 
 export default class App extends Component {
   constructor(){
     super()
     this.state = {
-      home: false,
+      home: true,
       about: false,
-      treats: true,
+      treats: false,
       photosReviews: false,
       cart: false,
       navBar: true,
@@ -50,6 +51,7 @@ export default class App extends Component {
   }
 
   navChange = e => {
+    console.log('here is the e', e);
     if(e.currentTarget.name === 'home'){
       this.setState({
         home: true,
@@ -102,10 +104,11 @@ export default class App extends Component {
   return (
       <div>
         <AdminContainer changeState={this.changeState}/>
-        {this.state.navBar ? <NavbarContainer navBar={this.navBar}/> : null}
+        {this.state.navBar ? <NavbarContainer navChange={this.navChange}/> : null}
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
         {this.state.treats ? <TreatContainer/> : null}
+        <CartContainer/>
       </div>
     );
   }
