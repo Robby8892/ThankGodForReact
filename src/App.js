@@ -51,7 +51,6 @@ export default class App extends Component {
   }
 
   navChange = e => {
-    console.log('here is the e', e);
     if(e.currentTarget.name === 'home'){
       this.setState({
         home: true,
@@ -107,8 +106,9 @@ export default class App extends Component {
         {this.state.navBar ? <NavbarContainer navChange={this.navChange}/> : null}
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
-        {this.state.treats ? <TreatContainer/> : null}
-        <CartContainer/>
+        <CartContainer 
+        treatPage={this.state.treats}
+        />
       </div>
     );
   }

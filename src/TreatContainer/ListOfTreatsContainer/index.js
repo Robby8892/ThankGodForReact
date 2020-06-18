@@ -3,7 +3,6 @@ import axios from 'axios'
 import './index.css'
 
 export default function ListOfTreatsContainer(props){
-	console.log(props.treats);
 	const listOfTreats = props.treats.map(({_id, price, name, imgOfTreat, description})=> {
 		const getImg = async (someExp) => {
 			const imgResponse = await axios.get(process.env.REACT_APP_API_URI + `image/treat/${_id}`)
@@ -11,9 +10,8 @@ export default function ListOfTreatsContainer(props){
 				res => {
 					return res.data
 				}
-				)
+			)
 		};
-		console.log(getImg);
 
 		return(
 				<div className='img-container' key={_id}>
@@ -21,7 +19,7 @@ export default function ListOfTreatsContainer(props){
 					<h3 className='name-of-treat'>{name}</h3>
 					<p className='description'>{description}</p>
 					<span className='price'>${price}</span>
-					<button className='order-button'>Order</button>
+					<button onClick={() => props.updateCart(_id) } className='order-button'>Order</button>
 				</div>
 			)
 	})

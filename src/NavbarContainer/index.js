@@ -1,5 +1,5 @@
 import React from 'react';
-import CartContainer from '../CartContainer'
+// import CartContainer from '../CartContainer'
 
 import shoppingCart from '../photos/shopping-cart.png'
 import logo from '../photos/LOGO.png'
@@ -10,7 +10,7 @@ import logo from '../photos/LOGO.png'
 export default function Navbar(props) {
   return (
     <div>
-    	<h1 className='title'><img src={logo} alt={'image of website name, thank god for raw & vegan treats'}/></h1>
+    	<h1 className='title'><img src={logo} alt={' website name, thank god for raw & vegan treats'}/></h1>
         <nav className='nav-bar'>
           <ul>
             <li className='nav-bar-item'><a name='home' onClick={props.navChange} href='#'>Home</a></li>

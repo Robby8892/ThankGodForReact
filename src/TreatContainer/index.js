@@ -32,7 +32,9 @@ export default class TreatContainer extends Component {
 		return(
 			<React.Fragment>
 				<ListOfTreatsContainer
-				treats={this.state.treats}
+					treats={this.state.treats}
+					updateCart={this.props.updateCart}
+					onClick={this.props.onClick}
 				/>
 			</React.Fragment>
 		)

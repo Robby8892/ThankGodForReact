@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import TreatContainer from '../index.js'
 export default class CartContainer extends Component {
 	constructor(props){
 		super()
@@ -30,6 +30,10 @@ export default class CartContainer extends Component {
 		console.log('here is treatId', treatId);
 	}
 
+	onClick = (e) => {
+		console.log(e.target);
+	}
+
 	componentDidMount(){
 		this.createCart()
 	}
@@ -37,7 +41,10 @@ export default class CartContainer extends Component {
 	render(){
 		return(
 			<React.Fragment>
-				CartContainer
+				{this.props.treatPage ? <TreatContainer
+						updateCart={this.updateCart}
+						onClick={this.onClick}
+					/> : null}
 			</React.Fragment>
 		)
 	}
