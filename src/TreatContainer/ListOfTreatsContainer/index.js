@@ -4,7 +4,7 @@ import './index.css'
 
 export default function ListOfTreatsContainer(props){
 	const listOfTreats = props.treats.map(({_id, price, name, imgOfTreat, description})=> {
-		const getImg = async (someExp) => {
+		const getImg = async () => {
 			const imgResponse = await axios.get(process.env.REACT_APP_API_URI + `image/treat/${_id}`)
 			.then(
 				res => {

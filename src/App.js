@@ -20,9 +20,18 @@ export default class App extends Component {
       cart: false,
       navBar: true,
       admin: false,
-      createTreat: false
+      createTreat: false,
+      userCart: []
     }
   }
+
+  getCartDetails = (cartInfo) => {
+    const userCart = this.state.userCart
+    userCart.push(cartInfo)
+    this.setState({
+      userCart: userCart
+    })
+  } 
 
   changeState = () => {
     if(this.state.admin === false ){
@@ -103,10 +112,13 @@ export default class App extends Component {
   return (
       <div>
         <AdminContainer changeState={this.changeState}/>
-        {this.state.navBar ? <NavbarContainer navChange={this.navChange}/> : null}
+        {this.state.navBar ? <NavbarContainer navChange={this.navChange}
+          userCart={this.state.userCart}
+          /> : null}
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
         <CartContainer 
+        getCartDetails={this.getCartDetails}
         treatPage={this.state.treats}
         />
       </div>

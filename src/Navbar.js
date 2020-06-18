@@ -4,6 +4,7 @@ import shoppingCart from './photos/shopping-cart.png'
 import logo from './photos/LOGO.png'
 
 export default function NavbarContainer(props) {
+  
   return (
     <div>
     	<h1 className='title'><img src={logo} alt={'image of website name, thank god for raw & vegan treats'}/></h1>

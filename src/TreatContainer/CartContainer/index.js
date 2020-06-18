@@ -36,6 +36,7 @@ export default class CartContainer extends Component {
 				this.setState({
 					treatsInCart: treatsInCart
 				})
+				this.props.getCartDetails(res.data.data)
 
 			})
 	}
@@ -45,7 +46,6 @@ export default class CartContainer extends Component {
 	}
 
 	render(){
-		console.log(this.state);
 		return(
 			<React.Fragment>
 				{this.props.treatPage ? <TreatContainer
