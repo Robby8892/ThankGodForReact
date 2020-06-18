@@ -114,7 +114,7 @@ function RouterComp(props) {
 				<nav>
 					<ul>
 						<li>
-							<Link to ='/controlpanel/login/_admin'></Link>
+							<Link to ='/controlpanel/login/admin'></Link>
 						</li>
 							{props.admin ? <Link to ='/controlpanel/create/treat/admin'>Create A Treat</Link> : null}
 						<li>

@@ -19,6 +19,9 @@ export default function ListOfTreatsContainer(props){
 					<h3 className='name-of-treat'>{name}</h3>
 					<p className='description'>{description}</p>
 					<span className='price'>${price}</span>
+					<div className='quantity-container'>
+						<a href='#'> [+] </a> <span className='quantity'>{props.quantity}</span> <a href='#'> [-] </a>
+					</div>
 					<button onClick={() => props.updateCart(_id) } className='order-button'>Order</button>
 				</div>
 			)

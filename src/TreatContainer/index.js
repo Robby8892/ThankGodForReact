@@ -6,9 +6,12 @@ export default class TreatContainer extends Component {
 	constructor(props){
 		super()
 		this.state = {
-			treats: []
+			treats: [],
+			quantity: 0
 		}
 	}
+
+	// updateQuantity = 
 	getTreats = async () => {
 
 		const treatsResponse = await axios.get(process.env.REACT_APP_API_URI + 'treat')
@@ -35,6 +38,7 @@ export default class TreatContainer extends Component {
 					treats={this.state.treats}
 					updateCart={this.props.updateCart}
 					onClick={this.props.onClick}
+					quantity={this.state.quantity}
 				/>
 			</React.Fragment>
 		)
