@@ -5,7 +5,7 @@ import AboutContainer from './AboutContainer'
 import HomeContainer from './HomeContainer'
 import AdminContainer from './AdminContainer'
 import TreatContainer from './TreatContainer'
-import CartContainer from './CartContainer'
+import CartContainer from './TreatContainer/CartContainer'
 
 
 
