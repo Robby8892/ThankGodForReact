@@ -17,9 +17,9 @@ export default function Navbar(props) {
             <li className='nav-bar-item'><a name='about' onClick={props.navChange} href='#'>About</a></li>
             <li className='nav-bar-item'>
               <a name='cart' onClick={props.navChange} href='#' onClick={props.openCartModal}>
-                <img className='shopping-cart' src={shoppingCart} alt={'shopping cart image'}/>
+                <img className='shopping-cart' src={shoppingCart} alt={'shopping cart logo'}/>
                   <span className='badge'>
-                    {props.userCart.length > 0 ? props.userCart.length : null}
+                    {props.userCart > 0 ? props.userCart : null}
                   </span>
               </a>
             </li>

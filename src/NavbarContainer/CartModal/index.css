@@ -1,5 +1,5 @@
 .modal-container, .content-container {
-
+	display: inline-block;
 }
 
 div {
@@ -7,5 +7,13 @@ div {
 }
 
 .modal-img {
-	left: 13em;
+	margin: 1em 0 1em 15.5em;
+}
+
+.name-header {
+	
+}
+
+.delete-button {
+
 }

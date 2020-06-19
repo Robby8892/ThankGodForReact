@@ -11,21 +11,22 @@ export default class CartContainer extends Component {
 			checkout: false,
 			clearCart: false,
 			treatsInCart: [],
-			quantity: 1
+			quantity: 1,
+			contentsInCart: false
 		}
 	}
 // I need to gather the id info from the button clicks of each treat
 // then I can use that for my update fetch call
 	updateQuantity = (value) => {
+		console.log('here is the value', value);
 		this.setState({
 			quantity: value
 		})
 	}
 
-	createCart = async () => {
-		const cartResponse = await axios.post(process.env.REACT_APP_API_URI + 'cart/new')
+	createCart = () => {
+		axios.post(process.env.REACT_APP_API_URI + 'cart/new')
 			.then(res => {
-				console.log('here is a good response',res.data);
 				this.setState({
 					cart: true,
 					cartId: res.data.data._id
@@ -34,30 +35,29 @@ export default class CartContainer extends Component {
 			})
 	}
 
-	updateCart = async (treatId) => {
-		const updatedCartResponse = await axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`, {
+	updateCart = (treatId) => {
+		axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`, {
 			data: this.state.quantity
 			})
 			.then(res => {
-				console.log(res, 'jere is hte response')
 				if(res.data.status === 200){
-					console.log('here is the update cart', res.data.data);
+					// console.log('here is the update cart', res.data.data);
 					const treatsInCart = this.state.treatsInCart
-
 					treatsInCart.push(res.data.data)
 					this.setState({
-						treatsInCart: treatsInCart
+						treatsInCart: treatsInCart,
+						contentsInCart: true,
 					})
 					this.props.getCartDetails(res.data.data)
 
 				} else {
-					console.log('here is treatId', treatId)
-					console.log('here is res.data.data.quantity', res)
+
 					const findAndReplaceTreat = this.state.treatsInCart.filter(({_id}) => _id === treatId)
 					const updatedTreatsInState = this.state.treatsInCart
 
 					this.state.treatsInCart.forEach((item, i) => {
-						if(item._id == findAndReplaceTreat[0]._id){
+						if(item._id === findAndReplaceTreat[0]._id){
+							console.log(res.data.data.quantity, 'here is the response data of quantity');
 							updatedTreatsInState[i].quantity = res.data.data.quantity
 							this.setState({
 								treatsInCart: updatedTreatsInState
@@ -65,25 +65,36 @@ export default class CartContainer extends Component {
 						}
 					})
 
-					console.log(findAndReplaceTreat, 'here is findAndReplaceTreat')
 				}
 
 			})
 	}
-	deleteItemFromCart = async (treatId) => {
-		const deletedItemResponse = await axios.delete(process.env.REACT_APP_API_URI, + `${treatId}/` + this.state.cartId)
+	deleteItemFromCart = (treatId) => {
+		console.log('here is treatId', treatId);
+		axios.delete(process.env.REACT_APP_API_URI + `cart/${treatId}/${this.state.cartId}`)
 			.then(res => {
-				console.log(res.data.data, 'here is that deleted cart');
+
+				const remainingTreats = res.data.data.treatsInCart
+				const remainingCart = res.data.data.treatsInCart
+
+				this.setState({
+					treatsInCart: remainingTreats
+				})
+				this.props.removeItemFromCart()
+				if(this.state.treatsInCart.length === 0){
+					this.setState({
+						contentsInCart: false
+					})
+				}
 			})
 	}
-
 
 	componentDidMount(){
 		this.createCart()
 	}
 
 	render(){
-		console.log('here is quantity', this.state.quantity);
+		console.log('here is the CartContainer');
 		return(
 			<React.Fragment>
 				{this.props.treatPage ? <TreatContainer
@@ -91,9 +102,17 @@ export default class CartContainer extends Component {
 						updateCart={this.updateCart}
 						onClick={this.onClick}
 					/> : null}
+					{this.props.cartModal ? 
 					<CartModal
-					userCartInfo={this.props.userCartInfo}
+						cartModal={this.props.cartModal}
+						userCartInfo={this.state.treatsInCart}
+						closeCartModal={this.props.closeCartModal}
+						deleteItemFromCart={this.deleteItemFromCart}
+						contentsInCart={this.state.contentsInCart}
 					/>
+					:
+					null
+					}
 			</React.Fragment>
 		)
 	}

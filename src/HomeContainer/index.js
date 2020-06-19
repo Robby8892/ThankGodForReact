@@ -25,7 +25,6 @@ const zoomOutProperties = {
 }
 
 function onClick(){
-	console.log('you clicked');
 }
 
 export default function homeContainer(){
@@ -34,7 +33,7 @@ export default function homeContainer(){
 		 <div className="slide-container">
 		  <Zoom {...zoomOutProperties}>
 		    {
-		      images.map((each, index) => <img  key={index} style={{width: "100%"}} src={each} alt={'image of a treat on the site'} />)
+		      images.map((each, index) => <img  key={index} style={{width: "100%"}} src={each} alt={'treat on site'} />)
 		    }
 		  </Zoom>
 		</div>
@@ -42,10 +41,10 @@ export default function homeContainer(){
 		 <p className='phone'>Phone: (773) 879-4208</p>
 		 <p className='email'>Email: chelly67mom@yahoo.com</p>
 		 <div className='links-container'>
-		 	<a href={'https://www.instagram.com/thankgod4rawvegantreats_/'} target="_blank">
+		 	<a href={'https://www.instagram.com/thankgod4rawvegantreats_/'} target='_blank' rel='noopener noreferrer'>
 			   <img className='instagram' src={instagramLogo} alt={'instagram logo'}/>
 			</a>
-			<a href={'https://www.facebook.com/Michelle-Scott-CEO-197474354500232'} target="_blank">
+			<a href={'https://www.facebook.com/Michelle-Scott-CEO-197474354500232'} target='_blank' rel='noopener noreferrer'>
 			   <img onClick={onClick} className='facebook' src={facebookLogo} alt={'facebook logo'}/>
 			</a>
 		 </div>

@@ -25,7 +25,7 @@ export default class AdminContainer extends Component {
 		
 	loginAdmin = async (loginInfo) => {
 		try{
-			const loginResponse = await axios.post(process.env.REACT_APP_API_URI + 'admin/login', {
+			await axios.post(process.env.REACT_APP_API_URI + 'admin/login', {
 				data: loginInfo
 			})
 			.then(res => {
@@ -59,7 +59,7 @@ export default class AdminContainer extends Component {
 			formData.append('description', treatInfo.description)
 
 
-			const createdTreatResponse = await axios.post(process.env.REACT_APP_API_URI + 'treat/new', formData)
+			await axios.post(process.env.REACT_APP_API_URI + 'treat/new', formData)
 				.then(res => {
 					if(res.data.status === 200){
 					console.log(res.data, 'here is the created treat');

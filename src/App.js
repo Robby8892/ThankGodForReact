@@ -4,9 +4,7 @@ import NavbarContainer from './NavbarContainer'
 import AboutContainer from './AboutContainer'
 import HomeContainer from './HomeContainer'
 import AdminContainer from './AdminContainer'
-import TreatContainer from './TreatContainer'
 import CartContainer from './TreatContainer/CartContainer'
-import CartModal from './NavbarContainer/CartModal'
 
 
 export default class App extends Component {
@@ -21,19 +19,24 @@ export default class App extends Component {
       navBar: true,
       admin: false,
       createTreat: false,
-      userCart: [],
+      userCart: 0,
       cartModal: false,
       quantity: 0
     }
   }
 
-  getCartDetails = (cartInfo) => {
-    const userCart = this.state.userCart
-    userCart.push(cartInfo)
+  getCartDetails = () => {
+
     this.setState({
-      userCart: userCart
+      userCart: this.state.userCart += 1
     })
-  } 
+  }
+
+  removeItemFromCart = () => {
+    this.setState({
+      userCart: this.state.userCart -= 1
+    })
+  }
 
   changeState = () => {
     if(this.state.admin === false ){
@@ -123,8 +126,6 @@ export default class App extends Component {
 
 
   render(){
-    console.log('this.state.userCart ', this.state.userCart.length);
-
   return (
       <div>
         <AdminContainer changeState={this.changeState}/>
@@ -136,15 +137,12 @@ export default class App extends Component {
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
         <CartContainer 
+        removeItemFromCart={this.removeItemFromCart}
         cartModal={this.state.cartModal}
         getCartDetails={this.getCartDetails}
         treatPage={this.state.treats}
         userCartInfo={this.state.userCart}
-        />
-        <CartModal
-          closeCartModal={this.closeCartModal}
-          cartModal={this.state.cartModal}
-          userCartInfo={this.state.userCart}
+        closeCartModal={this.closeCartModal}
         />
       </div>
     );
