@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import TreatContainer from '../index.js'
 import CartModal from '../../NavbarContainer/CartModal'
+import OrderContainer from '../../OrderContainer'
 export default class CartContainer extends Component {
 	constructor(props){
 		super()
@@ -12,7 +13,8 @@ export default class CartContainer extends Component {
 			clearCart: false,
 			treatsInCart: [],
 			quantity: 1,
-			contentsInCart: false
+			contentsInCart: false,
+			orderContainer: false
 		}
 	}
 // I need to gather the id info from the button clicks of each treat
@@ -105,8 +107,19 @@ export default class CartContainer extends Component {
 		this.createCart()
 	}
 
+	cartCheckOut = () => {
+		console.log('are you here in cartCheckOut');
+		this.setState({
+			orderContainer: true
+		})
+		this.props.closeCartModal()
+		this.props.closeTreatPage()
+
+	}
+
 	render(){
-		console.log('here is the CartContainer');
+		console.log('hereis treatPage', this.state.treatPage)
+		console.log('here is orderContainer', this.state.orderContainer);
 		return(
 			<React.Fragment>
 				{this.props.treatPage ? <TreatContainer
@@ -116,6 +129,7 @@ export default class CartContainer extends Component {
 					/> : null}
 					{this.props.cartModal ? 
 					<CartModal
+						cartCheckOut={this.cartCheckOut}
 						clearCart={this.clearCart}
 						cartModal={this.props.cartModal}
 						userCartInfo={this.state.treatsInCart}
@@ -125,6 +139,11 @@ export default class CartContainer extends Component {
 					/>
 					:
 					null
+					}
+					{this.state.orderContainer ? 
+						<OrderContainer/>
+						:
+						null
 					}
 			</React.Fragment>
 		)

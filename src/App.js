@@ -121,6 +121,12 @@ export default class App extends Component {
     }
   }
 
+  closeTreatPage = () => {
+    this.setState({
+      treats: false
+    })
+  }
+
   openCartModal = () => {
     this.setState({
       cartModal: true
@@ -146,6 +152,7 @@ export default class App extends Component {
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
         <CartContainer 
+        closeTreatPage={this.closeTreatPage}
         emptyCart={this.emptyCart}
         removeItemFromCart={this.removeItemFromCart}
         cartModal={this.state.cartModal}

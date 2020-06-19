@@ -3,7 +3,6 @@ import {Button, Header, Modal, Image } from 'semantic-ui-react'
 import './index.css'
 
 export default function CartModal(props) {
-	console.log('here is the component, CartModal');
 	console.log('here is props on cartModal', props);
 		const userCartInfo = props.userCartInfo.map(({cartId, name, price, imgOfTreat, _id, quantity}) =>{
 
@@ -13,7 +12,7 @@ export default function CartModal(props) {
 					<p>${price*quantity}</p>
 					<span>Quantity: <strong>{quantity}</strong></span>
 					<Image className='modal-img' size='small'  src={process.env.REACT_APP_API_URI + `image/treat/${_id}`} alt={name}/>
-					<button className='delete-button' onClick={() => props.deleteItemFromCart(_id) } color='green'>Delete {name} from cart</button>
+					<Button color='red' className='delete-button' onClick={() => props.deleteItemFromCart(_id) }>Delete {name} from cart</Button>
 				</div>
 			)
 		})
@@ -24,7 +23,7 @@ export default function CartModal(props) {
 					<Modal.Content className='content-container'>
 						{userCartInfo}
 						<Modal.Actions>
-							<Button color='green'>Checkout</Button>
+							<Button onClick={props.cartCheckOut} color='green'>Checkout</Button>
 							<Button onClick={props.clearCart} color='red'>Clear Cart</Button>
 						</Modal.Actions>
 					</Modal.Content>

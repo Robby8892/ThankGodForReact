@@ -32,13 +32,12 @@ export default class TreatContainer extends Component {
 	}
 
 	onBlur = e => {
-		console.log(e.target.value, 'here is teh value');
 		this.props.updateQuantity(e.target.value)
 	}
 
 
 	render(){
-		console.log('here is a log inside TreatContainer');
+
 		return(
 			<React.Fragment>
 				<ListOfTreatsContainer
