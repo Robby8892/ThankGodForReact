@@ -1,14 +1,22 @@
 import React, { Component } from 'react'
+import CartInfoContainer from './CartInfoContainer'
+
 
 export default class OrderContainer extends Component {
 	constructor(props){
 		super()
+		this.state = {
+			userInfoForm: false,
+			cartInfo: true 
+		}
 	}
 
 	render(){
 		return(
 			<React.Fragment>
-				OrderContainer
+				{
+					this.state.cartInfo ? <CartInfoContainer/> : null
+				}
 			</React.Fragment>
 			)
 	}
