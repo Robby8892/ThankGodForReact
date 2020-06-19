@@ -16,7 +16,9 @@ export default class OrderContainer extends Component {
 			<React.Fragment>
 				{
 					this.state.cartInfo ? <CartInfoContainer
-					treatsInCart={this.props.treatsInCart}/> 
+					treatsInCart={this.props.treatsInCart}
+					deleteItemFromCart={this.props.deleteItemFromCart}
+					/> 
 					: 
 					null
 				}
