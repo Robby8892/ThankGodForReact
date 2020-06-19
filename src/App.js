@@ -24,7 +24,10 @@ export default class App extends Component {
       quantity: 0
     }
   }
-
+// this needs to be refactored instead of 
+// me changing the value on the cart in the nav here it should
+// be changed inside of the CartContainer comp which is
+// where the change is coming from 
   getCartDetails = () => {
 
     this.setState({
@@ -35,6 +38,12 @@ export default class App extends Component {
   removeItemFromCart = () => {
     this.setState({
       userCart: this.state.userCart -= 1
+    })
+  }
+
+  emptyCart = () => {
+    this.setState({
+      userCart: 0
     })
   }
 
@@ -137,6 +146,7 @@ export default class App extends Component {
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
         <CartContainer 
+        emptyCart={this.emptyCart}
         removeItemFromCart={this.removeItemFromCart}
         cartModal={this.state.cartModal}
         getCartDetails={this.getCartDetails}

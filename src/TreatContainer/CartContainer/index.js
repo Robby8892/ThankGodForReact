@@ -36,10 +36,12 @@ export default class CartContainer extends Component {
 	}
 
 	updateCart = (treatId) => {
+		console.log('here I am in updateCart', treatId);
 		axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`, {
 			data: this.state.quantity
 			})
 			.then(res => {
+				console.log(res.data.status, 'here is the status?');
 				if(res.data.status === 200){
 					// console.log('here is the update cart', res.data.data);
 					const treatsInCart = this.state.treatsInCart
@@ -70,7 +72,7 @@ export default class CartContainer extends Component {
 			})
 	}
 	deleteItemFromCart = (treatId) => {
-		console.log('here is treatId', treatId);
+
 		axios.delete(process.env.REACT_APP_API_URI + `cart/${treatId}/${this.state.cartId}`)
 			.then(res => {
 
@@ -88,7 +90,17 @@ export default class CartContainer extends Component {
 				}
 			})
 	}
+	clearCart = () => {
 
+		axios.delete(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}`)
+		.then(res => {
+			console.log(res.data.data, 'cart is now cleared here is the data');
+			this.setState({
+				contentsInCart: false
+			})
+			this.props.emptyCart()
+		})
+	} 
 	componentDidMount(){
 		this.createCart()
 	}
@@ -104,6 +116,7 @@ export default class CartContainer extends Component {
 					/> : null}
 					{this.props.cartModal ? 
 					<CartModal
+						clearCart={this.clearCart}
 						cartModal={this.props.cartModal}
 						userCartInfo={this.state.treatsInCart}
 						closeCartModal={this.props.closeCartModal}

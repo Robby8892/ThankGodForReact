@@ -25,7 +25,7 @@ export default function CartModal(props) {
 						{userCartInfo}
 						<Modal.Actions>
 							<Button color='green'>Checkout</Button>
-							<Button color='red'>Clear Cart</Button>
+							<Button onClick={props.clearCart} color='red'>Clear Cart</Button>
 						</Modal.Actions>
 					</Modal.Content>
 				 :
