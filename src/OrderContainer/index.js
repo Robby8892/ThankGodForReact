@@ -15,7 +15,10 @@ export default class OrderContainer extends Component {
 		return(
 			<React.Fragment>
 				{
-					this.state.cartInfo ? <CartInfoContainer/> : null
+					this.state.cartInfo ? <CartInfoContainer
+					treatsInCart={this.props.treatsInCart}/> 
+					: 
+					null
 				}
 			</React.Fragment>
 			)

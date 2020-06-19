@@ -141,7 +141,9 @@ export default class CartContainer extends Component {
 					null
 					}
 					{this.state.orderContainer ? 
-						<OrderContainer/>
+						<OrderContainer
+						treatsInCart={this.state.treatsInCart}
+						/>
 						:
 						null
 					}
