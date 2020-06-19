@@ -7,7 +7,27 @@ export default function CartInfoContainer(props){
 				<div className='order-container' key={_id}>
 					<Header className='order-name' as='h4'>{name}</Header>
 					<p>${price*quantity}</p>
-					<small><span className='edit-quan'>Edit Quantity</span></small>
+					{!props.editQuantity ? 
+						<small><span onClick={props.onClick} className='edit-quan'>Edit Quantity</span></small>
+						:
+					<div className='quantity-container'>
+					<select className='quantity'>
+						<option value='1'>one</option>
+						<option value='2'>two</option>
+						<option value='3'>three</option>
+						<option value='4'>four</option>
+						<option value='5'>five</option>
+						<option value='6'>six</option>
+						<option value='7'>seven</option>
+						<option value='8'>eight</option>
+						<option value='9'>nine</option>
+						<option value='10'>ten</option>
+					</select>
+					<small>
+						<span className='edit-quan'>Confirm Quantity</span>
+					</small>
+					</div>
+					}
 					<br/>
 					<span>Quantity: 
 						<strong>{quantity}</strong>
