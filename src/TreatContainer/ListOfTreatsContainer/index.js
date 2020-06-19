@@ -1,23 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import './index.css'
-import { Dropdown } from 'semantic-ui-react'
-const options = [
-  { key: 1, text: '', value: 1 },
-  { key: 2, text: '', value: 2 },
-  { key: 3, text: '', value: 3 },
-  { key: 4, text: '', value: 4 },
-  { key: 5, text: '', value: 5 },
-  { key: 6, text: '', value: 6 },
-  { key: 7, text: '', value: 7 },
-  { key: 8, text: '', value: 8 },
-  { key: 9, text: '', value: 9 },
-  { key: 10, text: '', value: 10 },
-]
 
-const DropdownExampleClearable = () => (
-  <Dropdown clearable options={options} selection />
-)
 
 export default function ListOfTreatsContainer(props){
 	const listOfTreats = props.treats.map(({_id, price, name, imgOfTreat, description})=> {
@@ -37,39 +21,21 @@ export default function ListOfTreatsContainer(props){
 					<p className='description'>{description}</p>
 					<span className='price'>${price}</span>
 					<div className='quantity-container'>
-					<div role="listbox" aria-expanded="false" class="ui selection dropdown" tabindex="0">
-					  <div class="text" role="alert" aria-live="polite" aria-atomic="true"></div>
-					  <i aria-hidden="true" class="dropdown icon"></i>
-					  <div class="menu transition">
-					    <div
-
-					      role="option"
-					      aria-checked="false"
-					      aria-selected="true"
-					      class="selected item"
-					    >
-					      <span class="text">1</span>
-					    </div>
-					    <div
-
-					      role="option"
-					      aria-checked="false"
-					      aria-selected="false"
-					      class="item"
-					    >
-					      <span class="text">2</span>
-					    </div>
-					    <div
-
-					      role="option"
-					      aria-checked="false"
-					      aria-selected="false"
-					      class="item"
-					    >
-					      <span class="text">3</span>
-					    </div>
-					  </div>
-					</div>
+					<select className='quantity'>
+						<option value=''>
+							Quantity
+						</option>
+						<option value='one'>1</option>
+						<option value='two'>2</option>
+						<option value='three'>3</option>
+						<option value='four'>4</option>
+						<option value='five'>5</option>
+						<option value='six'>6</option>
+						<option value='seven'>7</option>
+						<option value='eight'>8</option>
+						<option value='nine'>9</option>
+						<option value='ten'>10</option>
+					</select>
 					</div>
 					<button onClick={() => props.updateCart(_id) } className='order-button'>Order</button>
 				</div>
@@ -81,3 +47,4 @@ export default function ListOfTreatsContainer(props){
 		</React.Fragment>
 		)
 }
+
