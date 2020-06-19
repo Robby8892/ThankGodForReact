@@ -136,8 +136,10 @@ export default class App extends Component {
         {this.state.home ? <HomeContainer/> : null}
         {this.state.about ? <AboutContainer/> : null}
         <CartContainer 
+        cartModal={this.state.cartModal}
         getCartDetails={this.getCartDetails}
         treatPage={this.state.treats}
+        userCartInfo={this.state.userCart}
         />
         <CartModal
           closeCartModal={this.closeCartModal}

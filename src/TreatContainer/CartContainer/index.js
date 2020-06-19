@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import TreatContainer from '../index.js'
+import CartModal from '../../NavbarContainer/CartModal'
 export default class CartContainer extends Component {
 	constructor(props){
 		super()
@@ -34,7 +35,6 @@ export default class CartContainer extends Component {
 	}
 
 	updateCart = async (treatId) => {
-		console.log(this.state.quantity);
 		const updatedCartResponse = await axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`, {
 			data: this.state.quantity
 			})
@@ -70,6 +70,13 @@ export default class CartContainer extends Component {
 
 			})
 	}
+	deleteItemFromCart = async (treatId) => {
+		const deletedItemResponse = await axios.delete(process.env.REACT_APP_API_URI, + `${treatId}/` + this.state.cartId)
+			.then(res => {
+				console.log(res.data.data, 'here is that deleted cart');
+			})
+	}
+
 
 	componentDidMount(){
 		this.createCart()
@@ -84,6 +91,9 @@ export default class CartContainer extends Component {
 						updateCart={this.updateCart}
 						onClick={this.onClick}
 					/> : null}
+					<CartModal
+					userCartInfo={this.props.userCartInfo}
+					/>
 			</React.Fragment>
 		)
 	}
