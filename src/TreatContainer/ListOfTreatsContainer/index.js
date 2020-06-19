@@ -13,7 +13,8 @@ export default function ListOfTreatsContainer(props){
 				}
 			)
 		};
-
+// when the user chooses their quantity,
+// they will 
 		return(
 				<div className='img-container' key={_id}>
 					<img className='image' src={process.env.REACT_APP_API_URI + `image/treat/${_id}`}/>
@@ -21,23 +22,27 @@ export default function ListOfTreatsContainer(props){
 					<p className='description'>{description}</p>
 					<span className='price'>${price}</span>
 					<div className='quantity-container'>
-					<select className='quantity'>
+					<select onBlur={props.onBlur} className='quantity'>
 						<option value=''>
 							Quantity
 						</option>
-						<option value='one'>1</option>
-						<option value='two'>2</option>
-						<option value='three'>3</option>
-						<option value='four'>4</option>
-						<option value='five'>5</option>
-						<option value='six'>6</option>
-						<option value='seven'>7</option>
-						<option value='eight'>8</option>
-						<option value='nine'>9</option>
-						<option value='ten'>10</option>
+						<option onBlur={props.onBlur} value='1'>one</option>
+						<option onBlur={props.onBlur} value='2'>two</option>
+						<option onBlur={props.onBlur} value='3'>three</option>
+						<option onBlur={props.onBlur} value='4'>four</option>
+						<option onBlur={props.onBlur} value='5'>five</option>
+						<option onBlur={props.onBlur} value='6'>six</option>
+						<option onBlur={props.onBlur} value='7'>seven</option>
+						<option onBlur={props.onBlur} value='8'>eight</option>
+						<option onBlur={props.onBlur} value='9'>nine</option>
+						<option onBlur={props.onBlur} value='10'>ten</option>
 					</select>
 					</div>
-					<button onClick={() => props.updateCart(_id) } className='order-button'>Order</button>
+					<button 
+						onClick={() => props.updateCart(_id)} 
+						className='order-button'>
+						Order
+					</button>
 				</div>
 			)
 	})

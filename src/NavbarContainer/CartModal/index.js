@@ -5,7 +5,7 @@ import './index.css'
 
 export default function CartModal(props) {
 
-		const userCartInfo = props.userCartInfo.map(({cartId, name, price, imgOfTreat, _id}) =>{
+		const userCartInfo = props.userCartInfo.map(({cartId, name, price, imgOfTreat, _id, quantity}) =>{
 			const getImg = async () => {
 				const imgResponse = await axios.get(process.env.REACT_APP_API_URI + `image/treat/${_id}`)
 				.then(
@@ -17,9 +17,10 @@ export default function CartModal(props) {
 			return(
 				<div key={_id}>
 					<Header as='h4'>{name}</Header>
-					<p>${price}</p>
+					<p>${price*quantity}</p>
 					<Image className='modal-img' size='small'  src={process.env.REACT_APP_API_URI + `image/treat/${_id}`} alt={name}/>
-
+					<button color='green'>[+]</button><span>[{quantity}]</span><button color='red'>[-]</button>
+					<button color='green'>Delete {name} from cart</button>
 				</div>
 			)
 		})
