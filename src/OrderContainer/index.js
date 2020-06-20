@@ -21,7 +21,8 @@ export default class OrderContainer extends Component {
 				zip: '',
 				phone: '',
 				email: '',
-				vc: '',
+				paymentId: '',
+				receipt: ''
 				total: 0
 			}
 		}
