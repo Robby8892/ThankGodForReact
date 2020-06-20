@@ -11,7 +11,7 @@ export default function CartInfoContainer(props){
 						<small><span onClick={props.onClick} className='edit-quan'>Edit Quantity</span></small>
 						:
 					<div className='quantity-container'>
-					<select className='quantity'>
+					<select onChange={props.onChange} value={props.value} className='quantity'>
 						<option value='1'>one</option>
 						<option value='2'>two</option>
 						<option value='3'>three</option>
@@ -24,7 +24,7 @@ export default function CartInfoContainer(props){
 						<option value='10'>ten</option>
 					</select>
 					<small>
-						<span className='edit-quan'>Confirm Quantity</span>
+						<span onMouseDown={() => props.updateCart(_id)} onMouseUp={props.handleEvent} className='edit-quan'>Confirm Quantity</span>
 					</small>
 					</div>
 					}

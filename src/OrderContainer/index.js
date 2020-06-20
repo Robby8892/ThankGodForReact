@@ -8,7 +8,8 @@ export default class OrderContainer extends Component {
 		this.state = {
 			userInfoForm: false,
 			cartInfo: true,
-			editQuantity: false
+			editQuantity: false,
+			value: 0
 		}
 	}
 
@@ -18,8 +19,25 @@ export default class OrderContainer extends Component {
 		})
 	}
 
+	onChange = e => {
+		this.setState({
+			value: e.target.value
+		}, () => {
+			this.props.updateQuantity(this.state.value)
+		})
+	}
+
+	handleEvent = e => {
+		if(e.type == 'mouseup'){
+			console.log(this.state.value, 'here is value');
+			this.setState({
+				editQuantity: false
+			})
+		}
+	}
+
 	render(){
-		console.log(this.state.editQuantity);
+		console.log(this.state.value);
 		return(
 			<React.Fragment>
 				{
@@ -28,6 +46,10 @@ export default class OrderContainer extends Component {
 					deleteItemFromCart={this.props.deleteItemFromCart}
 					editQuantity={this.state.editQuantity}
 					onClick={this.onClick}
+					handleEvent={this.handleEvent}
+					updateCart={this.props.updateCart}
+					value={this.state.value}
+					onChange={this.onChange}
 					/> 
 					: 
 					null

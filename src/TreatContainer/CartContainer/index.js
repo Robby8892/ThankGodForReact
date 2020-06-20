@@ -19,6 +19,7 @@ export default class CartContainer extends Component {
 	}
 // I need to gather the id info from the button clicks of each treat
 // then I can use that for my update fetch call
+
 	updateQuantity = (value) => {
 		console.log('here is the value', value);
 		this.setState({
@@ -39,6 +40,7 @@ export default class CartContainer extends Component {
 
 	updateCart = (treatId) => {
 		console.log('here I am in updateCart', treatId);
+		console.log('here is quantity', this.state.quantity);
 		axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`, {
 			data: this.state.quantity
 			})
@@ -144,6 +146,8 @@ export default class CartContainer extends Component {
 						<OrderContainer
 						deleteItemFromCart={this.deleteItemFromCart}
 						treatsInCart={this.state.treatsInCart}
+						updateCart={this.updateCart}
+						updateQuantity={this.updateQuantity}
 						/>
 						:
 						null
