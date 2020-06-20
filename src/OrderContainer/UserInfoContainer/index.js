@@ -116,11 +116,11 @@ export default function UserInfoContainer(){
 				   <h4 class="ui dividing header">Receipt(Optional)</h4>
 				   <div class="field">
 				    <label>Send Receipt To:</label>
-				    <div class="ui fluid multiple search selection dropdown">
+				    <div class="field">
 				      <input type="email" name="receipt" placeholder='Email for additional receipt'/>
 				    </div>
 				  </div>
-				  <div class="ui button" tabindex="0">Submit Order</div>
+				  <div id='order-button' class="ui button" tabindex="0">Submit Order</div>
 				</form>
 			</div>
 			<div className='payment-info-container'>
