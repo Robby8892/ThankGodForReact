@@ -40,7 +40,7 @@ export default function CartInfoContainer(props){
 	return(
 		<React.Fragment>
 			<Header className='order-header' as='h2'>Your Order Form</Header>
-			<Button color='green'>Confirm Order</Button>
+			<Button onClick={props.onClickConfirmOrder} color='green'>Confirm Order</Button>
 			{cartContentes}
 		</React.Fragment>
 		)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CartInfoContainer from './CartInfoContainer'
-
+import UserInfoContainer from './UserInfoContainer'
 
 export default class OrderContainer extends Component {
 	constructor(props){
@@ -9,10 +9,24 @@ export default class OrderContainer extends Component {
 			userInfoForm: false,
 			cartInfo: true,
 			editQuantity: false,
-			value: 0
+			value: 0,
+			merchantEmail: process.env.EMAIL,
+			emailForm: {
+				firstName: '',
+				lastName: '',
+				shippingAddres: '',
+				shippingAddres2: '',
+				city: '',
+				state: '',
+				zip: '',
+				phone: '',
+				email: '',
+				vc: '',
+				total: 0
+			}
 		}
 	}
-
+	
 	onClick = e => {
 		this.setState({
 			editQuantity: !this.state.editQuantity
@@ -36,6 +50,13 @@ export default class OrderContainer extends Component {
 		}
 	}
 
+	onClickConfirmOrder = e => {
+		this.setState({
+			userInfoForm: true,
+			cartInfo: false 
+		})
+	}
+
 	render(){
 		console.log(this.state.value);
 		return(
@@ -50,10 +71,13 @@ export default class OrderContainer extends Component {
 					updateCart={this.props.updateCart}
 					value={this.state.value}
 					onChange={this.onChange}
+					onClickConfirmOrder={this.onClickConfirmOrder}
 					/> 
 					: 
 					null
 				}
+
+				{this.state.userInfoForm ? <UserInfoContainer/> : null}
 			</React.Fragment>
 			)
 	}
