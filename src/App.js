@@ -141,7 +141,7 @@ export default class App extends Component {
 
 
   render(){
-    console.log('this is an update');
+
   return (
       <div>
         <AdminContainer changeState={this.changeState}/>
