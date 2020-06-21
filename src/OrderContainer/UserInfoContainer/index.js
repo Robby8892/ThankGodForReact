@@ -1,38 +1,38 @@
 import React from 'react'
 import './index.css'
 import {Button} from 'semantic-ui-react'
-export default function UserInfoContainer(){
+export default function UserInfoContainer(props){
 	return(
 		<React.Fragment>
 			<div className='form-container'>
-				<form class="ui form">
-				  <h4 class="ui dividing header">Shipping Information</h4>
-				  <div class="field">
+				<form onSubmit={props.sendEmail} className="ui form">
+				  <h4 className="ui dividing header">Shipping Information</h4>
+				  <div className="field">
 				    <label>Name</label>
-				    <div class="two fields">
-				      <div class="field">
+				    <div className="two fields">
+				      <div className="field">
 				        <input type="text" name="firstName" placeholder="First Name"/>
 				      </div>
-				      <div class="field">
+				      <div className="field">
 				        <input type="text" name="lastName" placeholder="Last Name"/>
 				      </div>
 				    </div>
 				  </div>
-				  <div class="field">
+				  <div className="field">
 				    <label>Shipping Address</label>
-				    <div class="fields">
-				      <div class="twelve wide field">
+				    <div className="fields">
+				      <div className="twelve wide field">
 				        <input type="text" name="shippingaddress" placeholder="Street Address"/>
 				      </div>
-				      <div class="four wide field">
+				      <div className="four wide field">
 				        <input type="text" name="shippingaddress2" placeholder="Apt #"/>
 				      </div>
 				    </div>
 				  </div>
-				  <div class="two fields">
-				    <div class="field">
+				  <div className="two fields">
+				    <div className="field">
 				      <label>State</label>
-				      <select class="ui fluid dropdown">
+				      <select className="ui fluid dropdown">
 				        <option value="">State</option>
 				    <option value="AL">Alabama</option>
 				    <option value="AK">Alaska</option>
@@ -87,40 +87,40 @@ export default function UserInfoContainer(){
 				    <option value="WY">Wyoming</option>
 				      </select>
 				    </div>
-				    <div class="field">
+				    <div className="field">
 				      <label>Zip</label>
 				        <input type="text" name="zip" placeholder='Zip' pattern="[0-9]{5}"/>
 				     </div>
 				  </div>
-				  <div class="field">
+				  <div className="field">
 				    <label>City</label>
 				      <input type="text" name="city" placeholder='City' />
 				  </div>
-				  <h4 class="ui dividing header">Payment Information</h4>
-				  <div class="field">
+				  <h4 className="ui dividing header">Payment Information</h4>
+				  <div className="field">
 				    <label>Email</label>
 				      <input type="email" name="email" placeholder='Email'/>
 				   </div>
-				  <div class="fields">
-				    <div class="seven wide field">
+				  <div className="fields">
+				    <div className="seven wide field">
 				      <label>Phone Number(Optional)</label>
 				      <input type="tel" name="phoneNumer" patter='[0-9]{3}-[0-9]{3}-[0-9]{4}' required placeholder="Phone #"/>
 				    </div>
-				    <div class="six wide field">
+				    <div className="six wide field">
 				      <label>Cash App or Venmo Id</label>
-				        <div class="field">
+				        <div className="field">
 				      		<input type="text" name="paymentId" placeholder="Id Name"/>
 				        </div>
 				   	 </div>
 				  </div>
-				   <h4 class="ui dividing header">Receipt(Optional)</h4>
-				   <div class="field">
+				   <h4 className="ui dividing header">Receipt(Optional)</h4>
+				   <div className="field">
 				    <label>Send Receipt To:</label>
-				    <div class="field">
+				    <div className="field">
 				      <input type="email" name="receipt" placeholder='Email for additional receipt'/>
 				    </div>
 				  </div>
-				  <div id='order-button' class="ui button" tabindex="0">Submit Order</div>
+				  <button type='submit' id='order-button' className="ui button" tabIndex="0">Submit Order</button>
 				</form>
 			</div>
 			<div className='payment-info-container'>

@@ -21,7 +21,7 @@ export default class CartContainer extends Component {
 // then I can use that for my update fetch call
 
 	updateQuantity = (value) => {
-		console.log('here is the value', value);
+
 		this.setState({
 			quantity: value
 		})
@@ -39,13 +39,12 @@ export default class CartContainer extends Component {
 	}
 
 	updateCart = (treatId) => {
-		console.log('here I am in updateCart', treatId);
-		console.log('here is quantity', this.state.quantity);
+
 		axios.put(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}/${treatId}/edit`, {
 			data: this.state.quantity
 			})
 			.then(res => {
-				console.log(res.data.status, 'here is the status?');
+				// console.log(res.data.status, 'here is the status?');
 				if(res.data.status === 200){
 					// console.log('here is the update cart', res.data.data);
 					const treatsInCart = this.state.treatsInCart
@@ -63,7 +62,7 @@ export default class CartContainer extends Component {
 
 					this.state.treatsInCart.forEach((item, i) => {
 						if(item._id === findAndReplaceTreat[0]._id){
-							console.log(res.data.data.quantity, 'here is the response data of quantity');
+							// console.log(res.data.data.quantity, 'here is the response data of quantity');
 							updatedTreatsInState[i].quantity = res.data.data.quantity
 							this.setState({
 								treatsInCart: updatedTreatsInState
@@ -98,7 +97,7 @@ export default class CartContainer extends Component {
 
 		axios.delete(process.env.REACT_APP_API_URI + `cart/${this.state.cartId}`)
 		.then(res => {
-			console.log(res.data.data, 'cart is now cleared here is the data');
+			// console.log(res.data.data, 'cart is now cleared here is the data');
 			this.setState({
 				contentsInCart: false
 			})
@@ -110,7 +109,7 @@ export default class CartContainer extends Component {
 	}
 
 	cartCheckOut = () => {
-		console.log('are you here in cartCheckOut');
+		// console.log('are you here in cartCheckOut');
 		this.setState({
 			orderContainer: true
 		})
@@ -120,8 +119,7 @@ export default class CartContainer extends Component {
 	}
 
 	render(){
-		console.log('hereis treatPage', this.state.treatPage)
-		console.log('here is orderContainer', this.state.orderContainer);
+
 		return(
 			<React.Fragment>
 				{this.props.treatPage ? <TreatContainer

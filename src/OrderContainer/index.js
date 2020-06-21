@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CartInfoContainer from './CartInfoContainer'
 import UserInfoContainer from './UserInfoContainer'
+import emailjs from 'emailjs-com'
+
 
 export default class OrderContainer extends Component {
 	constructor(props){
@@ -27,6 +29,17 @@ export default class OrderContainer extends Component {
 			}
 		}
 	}
+
+	sendEmail = e => {
+		e.preventDefault()
+		console.log('here is teh event on sendEmail', e);
+		emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATEID, e.target, process.env.REACT_APP_EMAILJS_USERID).
+			then((result) => {
+				console.log(result.text);
+			}, (error) => {
+				console.log(error.text);
+			})
+	}
 	
 	onClick = e => {
 		this.setState({
@@ -44,7 +57,7 @@ export default class OrderContainer extends Component {
 
 	handleEvent = e => {
 		if(e.type == 'mouseup'){
-			console.log(this.state.value, 'here is value');
+			// console.log(this.state.value, 'here is value');
 			this.setState({
 				editQuantity: false
 			})
@@ -59,7 +72,7 @@ export default class OrderContainer extends Component {
 	}
 
 	render(){
-		console.log(this.state.value);
+		
 		return(
 			<React.Fragment>
 				{
@@ -78,7 +91,9 @@ export default class OrderContainer extends Component {
 					null
 				}
 
-				{this.state.userInfoForm ? <UserInfoContainer/> : null}
+				{this.state.userInfoForm ? <UserInfoContainer
+					sendEmail={this.sendEmail}
+					/> : null}
 			</React.Fragment>
 			)
 	}
