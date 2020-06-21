@@ -22,7 +22,7 @@ export default class OrderContainer extends Component {
 				phone: '',
 				email: '',
 				paymentId: '',
-				receipt: ''
+				receipt: '',
 				total: 0
 			}
 		}

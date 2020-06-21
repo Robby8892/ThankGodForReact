@@ -2,7 +2,10 @@ import React from 'react'
 import './index.css'
 import {Button, Header, Image } from 'semantic-ui-react'
 export default function CartInfoContainer(props){
+	let total = 0
 	const cartContentes = props.treatsInCart.map(({imgOfTreat, name, _id, cartId, price, quantity}) => {
+		
+		total += price* quantity
 		return(
 				<div className='order-container' key={_id}>
 					<Header className='order-name' as='h4'>{name}</Header>
@@ -42,6 +45,7 @@ export default function CartInfoContainer(props){
 			<Header className='order-header' as='h2'>Your Order Form</Header>
 			<Button onClick={props.onClickConfirmOrder} color='green'>Confirm Order</Button>
 			{cartContentes}
+			<h1>Total is: {total}</h1>
 		</React.Fragment>
 		)
 }
