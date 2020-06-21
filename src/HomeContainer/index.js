@@ -39,6 +39,7 @@ export default function homeContainer(){
 			</div>
 
 			<div className="homies-2">
+				
 				<Zoom {...zoomOutProperties}>
 		    		{
 		      		images.map((each, index) => <img  key={index} style={{width: "100%"}} src={each} alt={'treat on site'} />)
