@@ -11,10 +11,10 @@ export default function UserInfoContainer(props){
 				    <label>Name</label>
 				    <div className="two fields">
 				      <div className="field">
-				        <input type="text" name="firstName" placeholder="First Name"/>
+				        <input value={props.firstName} onChange={props.onChangeForm} type="text" name="firstName" placeholder="First Name"/>
 				      </div>
 				      <div className="field">
-				        <input type="text" name="lastName" placeholder="Last Name"/>
+				        <input value={props.lastName} onChange={props.onChangeForm} type="text" name="lastName" placeholder="Last Name"/>
 				      </div>
 				    </div>
 				  </div>
@@ -22,17 +22,17 @@ export default function UserInfoContainer(props){
 				    <label>Shipping Address</label>
 				    <div className="fields">
 				      <div className="twelve wide field">
-				        <input type="text" name="shippingaddress" placeholder="Street Address"/>
+				        <input value={props.shippingAddress} onChange={props.onChangeForm} type="text" name="shippingAddress1" placeholder="Street Address"/>
 				      </div>
 				      <div className="four wide field">
-				        <input type="text" name="shippingaddress2" placeholder="Apt #"/>
+				        <input value={props.shippingAddress2} onChange={props.onChangeForm} type="text" name="shippingAddress2" placeholder="Apt #"/>
 				      </div>
 				    </div>
 				  </div>
 				  <div className="two fields">
 				    <div className="field">
 				      <label>State</label>
-				      <select className="ui fluid dropdown">
+				      <select value={props.state} name='state' onChange={props.onChangeForm} className="ui fluid dropdown">
 				        <option value="">State</option>
 				    <option value="AL">Alabama</option>
 				    <option value="AK">Alaska</option>
@@ -89,27 +89,27 @@ export default function UserInfoContainer(props){
 				    </div>
 				    <div className="field">
 				      <label>Zip</label>
-				        <input type="text" name="zip" placeholder='Zip' pattern="[0-9]{5}"/>
+				        <input value={props.zip} onChange={props.onChangeForm} type="text" name="zip" placeholder='Zip' pattern="[0-9]{5}"/>
 				     </div>
 				  </div>
 				  <div className="field">
 				    <label>City</label>
-				      <input type="text" name="city" placeholder='City' />
+				      <input value={props.city} onChange={props.onChangeForm} type="text" name="city" placeholder='City' />
 				  </div>
 				  <h4 className="ui dividing header">Payment Information</h4>
 				  <div className="field">
 				    <label>Email</label>
-				      <input type="email" name="email" placeholder='Email'/>
+				      <input value={props.email} onChange={props.onChangeForm} type="email" name="email" placeholder='Email'/>
 				   </div>
 				  <div className="fields">
 				    <div className="seven wide field">
 				      <label>Phone Number(Optional)</label>
-				      <input type="tel" name="phoneNumer" patter='[0-9]{3}-[0-9]{3}-[0-9]{4}' required placeholder="Phone #"/>
+				      <input value={props.phoneNumer} onChange={props.onChangeForm} type="tel" name="phoneNumber" patter='[0-9]{3}-[0-9]{3}-[0-9]{4}' required placeholder="Phone #"/>
 				    </div>
 				    <div className="six wide field">
 				      <label>Cash App or Venmo Id</label>
 				        <div className="field">
-				      		<input type="text" name="paymentId" placeholder="Id Name"/>
+				      		<input value={props.paymentId} onChange={props.onChangeForm} type="text" name="paymentId" placeholder="Id Name"/>
 				        </div>
 				   	 </div>
 				  </div>
@@ -117,7 +117,7 @@ export default function UserInfoContainer(props){
 				   <div className="field">
 				    <label>Send Receipt To:</label>
 				    <div className="field">
-				      <input type="email" name="receipt" placeholder='Email for additional receipt'/>
+				      <input value={props.receipt} onChange={props.onChangeForm} type="email" name="receipt" placeholder='Email for additional receipt'/>
 				    </div>
 				  </div>
 				  <button type='submit' id='order-button' className="ui button" tabIndex="0">Submit Order</button>

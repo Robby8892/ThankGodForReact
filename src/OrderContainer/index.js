@@ -16,12 +16,12 @@ export default class OrderContainer extends Component {
 			emailForm: {
 				firstName: '',
 				lastName: '',
-				shippingAddres: '',
-				shippingAddres2: '',
+				shippingAddress1: '',
+				shippingAddress2: '',
 				city: '',
 				state: '',
 				zip: '',
-				phone: '',
+				phoneNumber: '',
 				email: '',
 				paymentId: '',
 				receipt: '',
@@ -30,11 +30,22 @@ export default class OrderContainer extends Component {
 		}
 	}
 
+	onChangeForm = e => {
+		let newEmailForm = this.state.emailForm
+		newEmailForm[e.target.name] = e.target.value 
+		this.setState({
+			emailForm: newEmailForm
+		})
+	}
+
 	sendEmail = e => {
 		e.preventDefault()
-		console.log('here is teh event on sendEmail', e);
-		emailjs.sendForm(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATEID, e.target, process.env.REACT_APP_EMAILJS_USERID).
-			then((result) => {
+		console.log('here is teh event on sendEmail', e.target);
+		console.log('here is teh data', this.state.emailForm);
+		console.log('here is the function', emailjs);
+		emailjs.send(process.env.REACT_APP_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATEID, this.state.emailForm, process.env.REACT_APP_EMAILJS_USERID)
+			.then((result) => {
+				console.log('here is result', result);
 				console.log(result.text);
 			}, (error) => {
 				console.log(error.text);
@@ -72,7 +83,7 @@ export default class OrderContainer extends Component {
 	}
 
 	render(){
-		
+		console.log(this.state.emailForm);
 		return(
 			<React.Fragment>
 				{
@@ -93,6 +104,8 @@ export default class OrderContainer extends Component {
 
 				{this.state.userInfoForm ? <UserInfoContainer
 					sendEmail={this.sendEmail}
+					emailForm={this.state.emailForm}
+					onChangeForm={this.onChangeForm}
 					/> : null}
 			</React.Fragment>
 			)
