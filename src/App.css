@@ -31,8 +31,31 @@
   margin: 0 3em 0 3em;
 }
 
+.nav-bar-item a {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.nav-bar-item {
+  color: black;
+}
+
 ul {
   list-style: none;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+#nav-1 {
+  width: 90%;
+}
+
+#nav-2 {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .shopping-cart {
@@ -48,11 +71,13 @@ ul {
 }
 
 .review-item {
-  width: 278.14px;
-  height: 50.71px;
+  width: 350.14px;
+  height: 70.71px;
   margin-bottom: 4em; 
-
+  font-size: 25px;
   text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px white;
 
   background: #E8C27B;
   border: 1px solid #04A6DA;
@@ -161,4 +186,32 @@ ul {
   width: 20%;
   left: 35em;
   top: 15em;
+}
+
+.home-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.homies {
+  margin-top: 5%;
+  width: 30%;
+}
+
+.homies-2 {
+  margin-top: 5%;
+  width: 25%;
+  height: 60%;
+  align-self: center;
+}
+
+.contacts {
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+.media img {
+  margin: 5px 30px;
+  width: 50px;
 }
