@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import TreatContainer from '../index.js'
 import CartModal from '../../NavbarContainer/CartModal'
-// import OrderContainer from '../../OrderContainer'
+import OrderContainer from '../../OrderContainer'
 export default class CartContainer extends Component {
 	constructor(props){
 		super()
@@ -140,16 +140,16 @@ export default class CartContainer extends Component {
 					:
 					null
 					}
-					{/* {this.state.orderContainer ?  */}
-					{/* 	<OrderContainer */}
-					{/* 	deleteItemFromCart={this.deleteItemFromCart} */}
-					{/* 	treatsInCart={this.state.treatsInCart} */}
-					{/* 	updateCart={this.updateCart} */}
-					{/* 	updateQuantity={this.updateQuantity} */}
-					{/* 	/> */}
-					{/* 	: */}
-					{/* 	null */}
-					{/* } */}
+					{this.state.orderContainer ?  
+						<OrderContainer
+					 	deleteItemFromCart={this.deleteItemFromCart} 
+					 	treatsInCart={this.state.treatsInCart} 
+						updateCart={this.updateCart}
+					 	updateQuantity={this.updateQuantity} 
+					 	/> 
+					 	:
+						null
+					 }
 			</React.Fragment>
 		)
 	}

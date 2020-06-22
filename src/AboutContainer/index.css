@@ -43,7 +43,7 @@
 .testimony-container {
 	position: relative;
 	width: 280px;
-	left: 65em;
+	left: 60em;
 	top: -34.5em;
 }
 
@@ -54,7 +54,6 @@
 	font-weight: 500;
 	font-size: 20px;
 	line-height: 24px;
-
 	color: #000000;
 }
 
@@ -62,7 +61,7 @@
 	position: relative;
 	width: 162px;
 	height: 22px;
-	left: 53em;
+	left: 48em;
 	top: -27em;
 
 	font-family: Advent Pro;
@@ -82,7 +81,7 @@
 	position: relative;
 	width: 216px;
 	height: 45px;
-	left: 25em;
+	left: 22em;
 	top: 400.34px;
 
 	font-family: Advent Pro;
@@ -109,7 +108,7 @@
 	position: relative;
 	width: 267px;
 	height: 84px;
-	left: 24em;
+	left: 21em;
 	top: 22.2em;
 
 	font-family: Advent Pro;
