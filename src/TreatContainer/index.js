@@ -31,7 +31,7 @@ export default class TreatContainer extends Component {
 		this.getTreats()
 	}
 
-	onBlur = e => {
+	mouseUp = e => {
 		this.props.updateQuantity(e.target.value)
 	}
 
@@ -44,8 +44,10 @@ export default class TreatContainer extends Component {
 					treats={this.state.treats}
 					updateCart={this.props.updateCart}
 					onClick={this.props.onClick}
-					onBlur={this.onBlur}
+					mouseUp={this.mouseUp}
 					quantity={this.state.quantity}
+					onChangeValue={this.props.onChangeValue}
+					quantity={this.props.quantity}
 				/>
 			</React.Fragment>
 		)

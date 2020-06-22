@@ -66,37 +66,6 @@ export default function homeContainer(){
 				 </div>
 			</div>
 
-{/* 			<div className="slide-container"> */}
-		  		{/* <Zoom {...zoomOutProperties}> */}
-		    {/* 		{ */}
-		    {/*   		images.map((each, index) => <img  key={index} style={{width: "100%"}} src={each} alt={'treat on site'} />) */}
-		    {/* 		} */}
-		  		{/* </Zoom> */}
-{/* 			</div> */}
-{/* 		 <p className='contact'>Contact Me</p> */}
-{/* 		 <p className='phone'>Phone: (773) 879-4208</p> */}
-{/* 		 <p className='email'>Email: chelly67mom@yahoo.com</p> */}
-{/* 		 <div className='links-container'> */}
-{/* 		 	<a href={'https://www.instagram.com/thankgod4rawvegantreats_/'} target='_blank' rel='noopener noreferrer'> */}
-{/* 			   <img className='instagram' src={instagramLogo} alt={'instagram logo'}/> */}
-{/* 			</a> */}
-{/* 			<a href={'https://www.facebook.com/Michelle-Scott-CEO-197474354500232'} target='_blank' rel='noopener noreferrer'> */}
-{/* 			   <img onClick={onClick} className='facebook' src={facebookLogo} alt={'facebook logo'}/> */}
-{/* 			</a> */}
-{/* 		 </div> */}
-{/* 		 <p className='payment-options'>We Accept:</p> */}
-{/* 		 <div className='pay-options-container'> */}
-{/* 			 <img className='cashapp' src={cashappLogo} alt={'cashapp logo'}/> */}
-{/* 			 <img className='venmo' src={venmoLogo} alt={'venmo logo'}/> */}
-{/* 		 </div> */}
-{/*  */}
-{/* 			<div className='review-container'> */}
-{/* 				<ul className='reviews'> */}
-{/* 			    	<p className='review-item'>“Michelle it was the best cake ever, we ate the whole thing!”</p> */}
-{/* 			    	<p className='review-item'>“#blackgirlmagic!”</p> */}
-{/* 			    	<p className='review-item'>“We couldnt stop eating it literally.”</p> */}
-{/* 			   	</ul>   */}
-{/* 		 	</div> */}
 		</div> 
 	)
 }

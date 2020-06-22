@@ -26,7 +26,8 @@ export default class OrderContainer extends Component {
 				paymentId: '',
 				receipt: '',
 				total: 0
-			}
+			},
+			totalAmount: 0
 		}
 	}
 
@@ -83,9 +84,10 @@ export default class OrderContainer extends Component {
 	}
 
 	render(){
-		console.log(this.state.emailForm);
+		console.log("this is state in OrderContainer totalAmount: ", this.state.totalAmount);
 		return(
 			<React.Fragment>
+
 				{
 					this.state.cartInfo ? <CartInfoContainer
 					treatsInCart={this.props.treatsInCart}
@@ -98,7 +100,7 @@ export default class OrderContainer extends Component {
 					onChange={this.onChange}
 					onClickConfirmOrder={this.onClickConfirmOrder}
 					/> 
-					: 
+					:
 					null
 				}
 

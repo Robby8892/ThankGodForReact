@@ -5,7 +5,6 @@
 
 
 .img-container {
-
 	display: inline-block;
 	text-align: center;
 	align-content: center;
@@ -13,19 +12,17 @@
 
 .image {
 	margin: 10em 5em 1em 5em;
-	width: 11em;
-	height: 12em;
+	width: 20em;
+	height: 21em;
 	transform: matrix(-1, 0, 0, 1, 0, 0);
 }
-
-
 
 .name-of-treat {
 
 	font-family: Advent Pro;
 	font-style: normal;
 	font-weight: 600;
-	font-size: 18px;
+	font-size: 28px;
 	line-height: 22px;
 
 	color: #000000;

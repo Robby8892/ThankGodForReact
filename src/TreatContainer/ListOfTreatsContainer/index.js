@@ -11,7 +11,7 @@ export default function ListOfTreatsContainer(props){
 					<p className='description'>{description}</p>
 					<span className='price'>${price}</span>
 					<div className='quantity-container'>
-					<select onBlur={props.onBlur} className='quantity'>
+					<select onChange={props.onChangeValue} value={props.quantity} className='quantity'>
 						<option value='1'>one</option>
 						<option value='2'>two</option>
 						<option value='3'>three</option>
@@ -25,7 +25,7 @@ export default function ListOfTreatsContainer(props){
 					</select>
 					</div>
 					<button 
-						onClick={() => props.updateCart(_id)} 
+						onMouseDown={() => props.updateCart(_id)} 
 						className='order-button'>
 						Order
 					</button>
@@ -34,7 +34,10 @@ export default function ListOfTreatsContainer(props){
 	})
 	return(
 		<React.Fragment>
-			{listOfTreats}
+			<div className="treats-container">
+				{listOfTreats}
+				
+			</div>
 		</React.Fragment>
 		)
 }

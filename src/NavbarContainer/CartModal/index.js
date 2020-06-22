@@ -21,6 +21,7 @@ export default function CartModal(props) {
 				<Header as='h2'>{props.contentsInCart  ? 'Here are items in your cart.' : 'Your cart is empty'}</Header>
 				{props.contentsInCart ? 
 					<Modal.Content className='content-container'>
+						<span>Your total is: ${props.total}.00</span>
 						{userCartInfo}
 						<Modal.Actions>
 							<Button onClick={props.cartCheckOut} color='green'>Checkout</Button>
