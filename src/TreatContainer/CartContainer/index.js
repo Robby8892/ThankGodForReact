@@ -174,6 +174,7 @@ export default class CartContainer extends Component {
 					:
 					null
 					}
+
 					{this.state.orderContainer ? 
 						<OrderContainer
 						deleteItemFromCart={this.deleteItemFromCart}
