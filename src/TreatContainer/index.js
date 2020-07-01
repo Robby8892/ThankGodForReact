@@ -12,7 +12,8 @@ export default class TreatContainer extends Component {
 			quantity: 0,
 			offset: 0,
 			perPage: 6,
-			currentPage: 0
+			currentPage: 0,
+			treats: []
 		}
 	}
 
@@ -21,7 +22,7 @@ export default class TreatContainer extends Component {
 
 	getTreats = () => {
 
-		axios.get(process.env.REACT_APP_API_URI + 'treat')
+		const treatsResponse = axios.get(process.env.REACT_APP_API_URI + 'treat')
 			.then( res => {
 				console.log(res);
 				if(res.status === 200) {
@@ -68,6 +69,16 @@ export default class TreatContainer extends Component {
 					console.log('there was an error with call, contact developer.');
 				}
 			})
+
+			if(treatsResponse.status === 200){
+				console.log(treatsResponse, 'here are my treats');
+				this.setState({
+					treats:  treatsResponse.data.data
+				})
+			} else {
+				console.log('there was an error with call, contact developer.');
+			}
+
 		}
 
 		handlePageClick = e => {
